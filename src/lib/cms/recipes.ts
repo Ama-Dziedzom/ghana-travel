@@ -1,55 +1,48 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@supabase/supabase-js'
 import type { Recipe } from '@/lib/supabase/types'
 
-async function getSupabaseClient() {
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes('xxxx')) {
-    return null
-  }
-  return createClient()
+function publicClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  )
 }
 
 export async function getRecipes(): Promise<Recipe[]> {
-  const supabase = await getSupabaseClient()
+  const { data, error } = await publicClient()
+    .from('recipes')
+    .select('*')
+    .eq('status', 'published')
+    .order('created_at', { ascending: false })
 
-  if (supabase) {
-    const { data, error } = await supabase
-      .from('recipes')
-      .select('*')
-      .eq('status', 'published')
-      .order('created_at', { ascending: false })
-
-    if (!error && data) return data
-  }
-
-  return getLocalRecipes()
+  if (error || !data) return getLocalRecipes()
+  return data
 }
 
 export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
-  const supabase = await getSupabaseClient()
+  const { data, error } = await publicClient()
+    .from('recipes')
+    .select('*')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .maybeSingle()
 
-  if (supabase) {
-    const { data, error } = await supabase
-      .from('recipes')
-      .select('*')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single()
-
-    if (!error && data) return data
+  if (error || !data) {
+    const local = await getLocalRecipes()
+    return local.find((r) => r.slug === slug) ?? null
   }
 
-  const recipes = await getLocalRecipes()
-  return recipes.find((r) => r.slug === slug) ?? null
+  return data
 }
 
-// ─── Local MDX file reading (development fallback) ────────────────────────────
+// ─── Local MDX fallback ────────────────────────────────────────────────────────
 async function getLocalRecipes(): Promise<Recipe[]> {
   const fs = await import('fs')
   const path = await import('path')
   const matter = (await import('gray-matter')).default
 
   const contentDir = path.join(process.cwd(), 'content', 'recipes')
-
   if (!fs.existsSync(contentDir)) return []
 
   const files = fs.readdirSync(contentDir).filter((f: string) => f.endsWith('.mdx'))

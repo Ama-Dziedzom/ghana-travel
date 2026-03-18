@@ -68,7 +68,7 @@ export default async function AdminItinerariesPage() {
                     </td>
                     <td className="px-4 py-4 hidden md:table-cell">
                       <div className="flex flex-wrap gap-1">
-                        {(row.regions ?? []).slice(0, 2).map(r => (
+                        {(row.regions ?? [] as string[]).slice(0, 2).map((r: string) => (
                           <span key={r} className="flex items-center gap-1 font-body text-[9px] text-[#7A7162] bg-[#F5F3EF] px-2 py-0.5">
                             <MapPin size={8} />{r}
                           </span>

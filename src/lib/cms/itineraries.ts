@@ -1,62 +1,54 @@
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@supabase/supabase-js'
 import type { Itinerary, ItineraryDay } from '@/lib/supabase/types'
 
-async function getSupabaseClient() {
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL.includes('xxxx')) {
-    return null
-  }
-  return createClient()
+function publicClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  )
 }
 
 export async function getItineraries(): Promise<Itinerary[]> {
-  const supabase = await getSupabaseClient()
+  const { data, error } = await publicClient()
+    .from('itineraries')
+    .select('*')
+    .eq('status', 'published')
+    .order('duration', { ascending: false })
 
-  if (supabase) {
-    const { data, error } = await supabase
-      .from('itineraries')
-      .select('*')
-      .eq('status', 'published')
-      .order('duration', { ascending: false })
-
-    if (!error && data) return data
-  }
-
-  return getLocalItineraries()
+  if (error || !data) return getLocalItineraries()
+  return data
 }
 
 export async function getItineraryBySlug(
   slug: string
 ): Promise<(Itinerary & { days: ItineraryDay[] }) | null> {
-  const supabase = await getSupabaseClient()
+  const { data, error } = await publicClient()
+    .from('itineraries')
+    .select('*, itinerary_days(*)')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .maybeSingle()
 
-  if (supabase) {
-    const { data, error } = await supabase
-      .from('itineraries')
-      .select('*, itinerary_days(*)')
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single()
-
-    if (!error && data) {
-      const { itinerary_days, ...itinerary } = data as Itinerary & { itinerary_days: ItineraryDay[] }
-      return { ...itinerary, days: itinerary_days ?? [] }
-    }
+  if (error || !data) {
+    const all = await getLocalItineraries()
+    const found = all.find((i) => i.slug === slug)
+    return found ? { ...found, days: (found as Itinerary & { days: ItineraryDay[] }).days ?? [] } : null
   }
 
-  const all = await getLocalItineraries()
-  const found = all.find((i) => i.slug === slug)
-  if (!found) return null
-  return { ...found, days: (found as Itinerary & { days: ItineraryDay[] }).days ?? [] }
+  const { itinerary_days, ...itinerary } = data as Itinerary & { itinerary_days: ItineraryDay[] }
+  // Sort days by day_number
+  const sortedDays = (itinerary_days ?? []).sort((a, b) => a.day_number - b.day_number)
+  return { ...itinerary, days: sortedDays }
 }
 
-// ─── Local MDX file reading (development fallback) ────────────────────────────
+// ─── Local MDX fallback ────────────────────────────────────────────────────────
 async function getLocalItineraries(): Promise<(Itinerary & { days: ItineraryDay[] })[]> {
   const fs = await import('fs')
   const path = await import('path')
   const matter = (await import('gray-matter')).default
 
   const contentDir = path.join(process.cwd(), 'content', 'itineraries')
-
   if (!fs.existsSync(contentDir)) return []
 
   const files = fs.readdirSync(contentDir).filter((f: string) => f.endsWith('.mdx'))

@@ -19,7 +19,7 @@ const DIFFICULTIES = [
   { value: 'easy', label: 'Easy' },
   { value: 'medium', label: 'Medium' },
   { value: 'hard', label: 'Hard' },
-]
+] as const
 
 function slugify(str: string) {
   return str.toLowerCase().trim()
@@ -109,7 +109,7 @@ export default function RecipeForm({ recipe }: { recipe?: Recipe }) {
   const [prepTime, setPrepTime]     = useState(recipe?.prep_time ?? 15)
   const [cookTime, setCookTime]     = useState(recipe?.cook_time ?? 30)
   const [servings, setServings]     = useState(recipe?.servings ?? 4)
-  const [difficulty, setDifficulty] = useState(recipe?.difficulty ?? 'medium')
+  const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>(recipe?.difficulty ?? 'medium')
   const [tips, setTips]             = useState(recipe?.tips ?? '')
   const [ingredients, setIngredients]   = useState<string[]>(recipe?.ingredients ?? [''])
   const [instructions, setInstructions] = useState<string[]>(recipe?.instructions ?? [''])
