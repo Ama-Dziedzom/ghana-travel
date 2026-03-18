@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/server'
 import AdminHeader from '@/components/admin/AdminHeader'
 import Link from 'next/link'
 import type { Article, Itinerary, Recipe, Comment } from '@/lib/supabase/types'
@@ -14,7 +14,9 @@ import {
 } from 'lucide-react'
 
 async function getDashboardStats() {
-  const supabase = await createClient()
+  // Use the admin client (service role) so the dashboard sees ALL content
+  // regardless of RLS — correct behaviour for a CMS admin view.
+  const supabase = createAdminClient()
 
   const [articles, itineraries, recipes, comments] = await Promise.all([
     supabase
