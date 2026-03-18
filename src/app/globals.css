@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* MD Editor styles */
+@import '@uiw/react-md-editor/markdown-editor.css';
+@import '@uiw/react-markdown-preview/markdown.css';
+
+
 :root {
   --color-bg: #FAF7F2;
   --color-text: #1C1C1C;
