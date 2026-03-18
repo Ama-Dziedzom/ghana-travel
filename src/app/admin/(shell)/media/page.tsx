@@ -1,15 +1,35 @@
+import { createAdminClient } from '@/lib/supabase/server'
 import AdminHeader from '@/components/admin/AdminHeader'
+import MediaLibraryClient from '@/components/admin/MediaLibraryClient'
 
-export default function AdminMediaPage() {
+export default async function AdminMediaPage() {
+  const supabase = createAdminClient()
+
+  // List all files from Supabase Storage 'images' bucket
+  const { data: fileList } = await supabase.storage.from('images').list('', {
+    limit: 200,
+    offset: 0,
+    sortBy: { column: 'updated_at', order: 'desc' },
+  })
+
+  const files = (fileList ?? [])
+    .filter(f => f.name !== '.emptyFolderPlaceholder')
+    .map(f => ({
+      name: f.name,
+      id: f.id ?? f.name,
+      updated_at: f.updated_at ?? '',
+      metadata: f.metadata as { size?: number; mimetype?: string } | undefined,
+      publicUrl: supabase.storage.from('images').getPublicUrl(f.name).data.publicUrl,
+    }))
+
   return (
     <div className="flex flex-col min-h-screen">
-      <AdminHeader title="Media Library" subtitle="Upload and manage images in Supabase Storage" />
+      <AdminHeader
+        title="Media Library"
+        subtitle="All images uploaded to Supabase Storage"
+      />
       <main className="flex-1 p-8">
-        <div className="bg-white border border-[#E8E2D9] p-12 text-center">
-          <p className="font-display text-2xl text-[#7A7162] italic">
-            Media library coming in Phase 8.
-          </p>
-        </div>
+        <MediaLibraryClient initialFiles={files} />
       </main>
     </div>
   )
