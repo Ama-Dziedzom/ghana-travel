@@ -1,14 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { allArticles, allRecipes } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { ArrowRight } from "lucide-react";
 import ArticleCard from "@/components/ArticleCard";
 import NewsletterStrip from "@/components/NewsletterStrip";
+import { getArticles } from "@/lib/cms/articles";
+import { getRecipes } from "@/lib/cms/recipes";
 
-export default function Home() {
+export default async function Home() {
+  const [allArticles, allRecipes] = await Promise.all([getArticles(), getRecipes()]);
+
   const latestArticles = [...allArticles]
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .sort((a, b) => new Date(b.published_at ?? 0).getTime() - new Date(a.published_at ?? 0).getTime())
     .slice(0, 3);
 
   const featuredRecipe = allRecipes[0];
@@ -101,15 +104,17 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 lg:gap-24">
               <Link 
-                href={featuredRecipe.url}
+                href={`/taste/${featuredRecipe.slug}`}
                 className="relative aspect-[4/5] overflow-hidden group rounded-sm shadow-2xl"
               >
-                <Image
-                  src={featuredRecipe.coverImage}
-                  alt={featuredRecipe.title}
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
+                {featuredRecipe.cover_image && (
+                  <Image
+                    src={featuredRecipe.cover_image}
+                    alt={featuredRecipe.title}
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-x-0 bottom-0 h-2 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
               </Link>
               <div className="space-y-8">
@@ -123,18 +128,24 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-8 pt-4">
-                  <div className="space-y-1">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Prep</span>
-                    <p className="font-display text-xl text-text">{featuredRecipe.prepTime} Min</p>
-                  </div>
-                  <div className="space-y-1">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Cook</span>
-                    <p className="font-display text-xl text-text">{featuredRecipe.cookTime} Min</p>
-                  </div>
-                  <div className="space-y-1">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Serving</span>
-                    <p className="font-display text-xl text-text">{featuredRecipe.servings} People</p>
-                  </div>
+                  {featuredRecipe.prep_time && (
+                    <div className="space-y-1">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Prep</span>
+                      <p className="font-display text-xl text-text">{featuredRecipe.prep_time} Min</p>
+                    </div>
+                  )}
+                  {featuredRecipe.cook_time && (
+                    <div className="space-y-1">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Cook</span>
+                      <p className="font-display text-xl text-text">{featuredRecipe.cook_time} Min</p>
+                    </div>
+                  )}
+                  {featuredRecipe.servings && (
+                    <div className="space-y-1">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Serving</span>
+                      <p className="font-display text-xl text-text">{featuredRecipe.servings} People</p>
+                    </div>
+                  )}
                 </div>
                 <div className="pt-6">
                   <Link

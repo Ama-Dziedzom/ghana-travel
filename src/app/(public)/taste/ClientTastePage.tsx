@@ -1,18 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { allRecipes } from "contentlayer/generated";
 import RecipeCard from "@/components/RecipeCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import type { Recipe } from "@/lib/supabase/types";
 
 const RECIPE_CATEGORIES = ["All", "Soups", "Rice Dishes", "Street Food", "Drinks", "Snacks"];
 
-export default function TastePage() {
+interface ClientTastePageProps {
+  recipes: Recipe[];
+}
+
+export default function ClientTastePage({ recipes }: ClientTastePageProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredRecipes = allRecipes.filter((recipe) => {
+  const filteredRecipes = recipes.filter((recipe) => {
     if (activeCategory === "All") return true;
-    return recipe.category.toLowerCase().replace("-", " ") === activeCategory.toLowerCase();
+    return (recipe.category ?? "").toLowerCase().replace("-", " ") === activeCategory.toLowerCase();
   });
 
   return (

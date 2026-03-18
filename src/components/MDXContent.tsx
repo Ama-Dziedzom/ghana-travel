@@ -1,12 +1,10 @@
-"use client";
-
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface MDXContentProps {
-  code: string;
+  /** Raw MDX source string (from Supabase DB or local MDX file body) */
+  source: string;
 }
 
-export const MDXContent = ({ code }: MDXContentProps) => {
-  const Component = useMDXComponent(code);
-  return <Component />;
-};
+export async function MDXContent({ source }: MDXContentProps) {
+  return <MDXRemote source={source} />;
+}

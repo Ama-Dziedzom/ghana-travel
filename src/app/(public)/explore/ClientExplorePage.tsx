@@ -1,22 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import { allArticles } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import ArticleCard from "@/components/ArticleCard";
 import CategoryFilter from "@/components/CategoryFilter";
+import type { Article } from "@/lib/supabase/types";
 
 const CATEGORIES = ["All", "Culture", "History", "Festivals", "Neighbourhoods"];
 
-export default function ExplorePage() {
+interface ClientExplorePageProps {
+  articles: Article[];
+}
+
+export default function ClientExplorePage({ articles }: ClientExplorePageProps) {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredArticles = allArticles
+  const filteredArticles = articles
     .filter((article) => {
       if (activeCategory === "All") return true;
       return article.category.toLowerCase() === activeCategory.toLowerCase();
     })
-    .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)));
+    .sort((a, b) =>
+      compareDesc(new Date(a.published_at ?? 0), new Date(b.published_at ?? 0))
+    );
 
   return (
     <div className="pt-32 pb-24 px-6 lg:px-12">

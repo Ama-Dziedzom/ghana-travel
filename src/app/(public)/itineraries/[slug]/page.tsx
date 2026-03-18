@@ -1,4 +1,4 @@
-import { allItineraries } from "contentlayer/generated";
+import { getItineraryBySlug, getItineraries } from "@/lib/cms/itineraries";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import DayAccordion from "@/components/DayAccordion";
@@ -12,17 +12,17 @@ interface ItineraryPageProps {
 }
 
 export async function generateStaticParams() {
-  return allItineraries.map((itinerary) => ({
-    slug: itinerary.slug,
-  }));
+  const itineraries = await getItineraries();
+  return itineraries.map((itinerary) => ({ slug: itinerary.slug }));
 }
 
-export default function ItineraryPage({ params }: ItineraryPageProps) {
-  const itinerary = allItineraries.find((i) => i.slug === params.slug);
+export default async function ItineraryPage({ params }: ItineraryPageProps) {
+  const [itinerary, allItineraries] = await Promise.all([
+    getItineraryBySlug(params.slug),
+    getItineraries(),
+  ]);
 
-  if (!itinerary) {
-    notFound();
-  }
+  if (!itinerary) notFound();
 
   const relatedItineraries = allItineraries
     .filter((i) => i.slug !== itinerary.slug)
@@ -32,19 +32,23 @@ export default function ItineraryPage({ params }: ItineraryPageProps) {
     <div className="pb-24">
       {/* Hero */}
       <section className="relative h-[60vh] flex items-center justify-center pt-20">
-        <Image
-          src={itinerary.coverImage}
-          alt={itinerary.title}
-          fill
-          priority
-          className="object-cover"
-        />
+        {itinerary.cover_image && (
+          <Image
+            src={itinerary.cover_image}
+            alt={itinerary.title}
+            fill
+            priority
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center px-6">
           <div className="flex flex-wrap justify-center gap-3 mb-6">
-            <span className="bg-accent text-white font-body text-[10px] font-bold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full">
-              {itinerary.duration} DAYS
-            </span>
+            {itinerary.duration && (
+              <span className="bg-accent text-white font-body text-[10px] font-bold uppercase tracking-[0.3em] px-4 py-1.5 rounded-full">
+                {itinerary.duration} DAYS
+              </span>
+            )}
           </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white max-w-5xl mx-auto leading-tight">
             {itinerary.title}
@@ -58,12 +62,12 @@ export default function ItineraryPage({ params }: ItineraryPageProps) {
           <div className="flex flex-col items-center text-center space-y-2">
             <MapPin size={20} className="text-accent" />
             <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Regions</span>
-            <p className="font-body text-sm font-semibold">{itinerary.regions.join(", ")}</p>
+            <p className="font-body text-sm font-semibold">{(itinerary.regions ?? []).join(", ")}</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <Sun size={20} className="text-accent" />
             <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Best Season</span>
-            <p className="font-body text-sm font-semibold">{itinerary.bestSeason}</p>
+            <p className="font-body text-sm font-semibold">{itinerary.best_season}</p>
           </div>
           <div className="flex flex-col items-center text-center space-y-2">
             <BarChart size={20} className="text-accent" />
@@ -73,7 +77,7 @@ export default function ItineraryPage({ params }: ItineraryPageProps) {
           <div className="flex flex-col items-center text-center space-y-2">
             <Thermometer size={20} className="text-accent" />
             <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Vibe</span>
-            <p className="font-body text-sm font-semibold">{itinerary.vibeTags[0]}</p>
+            <p className="font-body text-sm font-semibold">{(itinerary.vibe_tags ?? [])[0]}</p>
           </div>
         </div>
       </section>
@@ -83,30 +87,34 @@ export default function ItineraryPage({ params }: ItineraryPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* Day Breakdown */}
           <div className="lg:col-span-8 space-y-12">
-            <div className="prose prose-lg font-body text-text/70 leading-relaxed italic max-w-none mb-12 border-l-2 border-accent/20 pl-8">
-              {itinerary.summary}
-            </div>
-            
+            {itinerary.summary && (
+              <div className="prose prose-lg font-body text-text/70 leading-relaxed italic max-w-none mb-12 border-l-2 border-accent/20 pl-8">
+                {itinerary.summary}
+              </div>
+            )}
+
             <DayAccordion days={itinerary.days} />
 
             {/* Map Embed */}
-            <div className="pt-12">
-              <h2 className="font-display text-3xl text-text mb-8">Route Map</h2>
-              <div className="aspect-video w-full bg-border rounded-sm overflow-hidden grayscale contrast-125">
-                <iframe
-                  src={itinerary.mapEmbedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+            {itinerary.map_embed_url && (
+              <div className="pt-12">
+                <h2 className="font-display text-3xl text-text mb-8">Route Map</h2>
+                <div className="aspect-video w-full bg-border rounded-sm overflow-hidden grayscale contrast-125">
+                  <iframe
+                    src={itinerary.map_embed_url}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={false}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
-          {/* Sidebar / Recommendations */}
+          {/* Sidebar */}
           <div className="lg:col-span-4 space-y-12 lg:sticky lg:top-32">
              <div className="p-8 bg-text text-bg rounded-sm space-y-6">
                 <h3 className="font-display text-2xl">Trip Planner Tips</h3>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { type Recipe } from "contentlayer/generated";
+import type { Recipe } from "@/lib/supabase/types";
 import { cn } from "@/lib/utils";
 
 interface RecipeCardProps {
@@ -8,19 +8,22 @@ interface RecipeCardProps {
 }
 
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
+  const totalTime = (recipe.prep_time ?? 0) + (recipe.cook_time ?? 0);
   return (
     <Link 
-      href={recipe.url}
+      href={`/taste/${recipe.slug}`}
       className="group block"
     >
       <div className="relative aspect-square overflow-hidden mb-5 bg-border rounded-sm">
-        <Image
-          src={recipe.coverImage}
-          alt={recipe.title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        {recipe.cover_image && (
+          <Image
+            src={recipe.cover_image}
+            alt={recipe.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        )}
         <div className="absolute inset-0 ring-1 ring-inset ring-black/5 group-hover:ring-accent/40 transition-all duration-300" />
       </div>
 
@@ -29,13 +32,19 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
           {recipe.title}
         </h3>
         <div className="flex items-center space-x-3 text-muted">
-          <span className="font-body text-[10px] uppercase tracking-widest bg-border/50 px-2 py-0.5 rounded-full">
-            {recipe.difficulty}
-          </span>
-          <span className="text-[10px] text-border">•</span>
-          <span className="font-body text-[10px] uppercase tracking-widest">
-            {recipe.prepTime + recipe.cookTime} MIN
-          </span>
+          {recipe.difficulty && (
+            <span className="font-body text-[10px] uppercase tracking-widest bg-border/50 px-2 py-0.5 rounded-full">
+              {recipe.difficulty}
+            </span>
+          )}
+          {totalTime > 0 && (
+            <>
+              <span className="text-[10px] text-border">•</span>
+              <span className="font-body text-[10px] uppercase tracking-widest">
+                {totalTime} MIN
+              </span>
+            </>
+          )}
         </div>
       </div>
     </Link>

@@ -1,5 +1,3 @@
-import { withContentlayer } from 'next-contentlayer'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -15,8 +13,13 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'plus.unsplash.com',
       },
+      {
+        // Supabase Storage — covers all projects (*.supabase.co)
+        protocol: 'https',
+        hostname: '*.supabase.co',
+      },
     ],
   },
 }
 
-export default withContentlayer(nextConfig)
+export default nextConfig

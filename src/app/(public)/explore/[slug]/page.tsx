@@ -1,4 +1,4 @@
-import { allArticles } from "contentlayer/generated";
+import { getArticleBySlug, getArticles } from "@/lib/cms/articles";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MDXContent } from "@/components/MDXContent";
@@ -13,33 +13,38 @@ interface ArticlePageProps {
 }
 
 export async function generateStaticParams() {
-  return allArticles.map((article) => ({
-    slug: article.slug,
-  }));
+  const articles = await getArticles();
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = allArticles.find((a) => a.slug === params.slug);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const [article, allArticles] = await Promise.all([
+    getArticleBySlug(params.slug),
+    getArticles(),
+  ]);
 
-  if (!article) {
-    notFound();
-  }
+  if (!article) notFound();
 
   const relatedArticles = allArticles
     .filter((a) => a.slug !== article.slug && a.category === article.category)
     .slice(0, 3);
 
+  // Resolve author name from the joined field (local fallback) or a separate query
+  const authorName = (article as { _author_name?: string | null })._author_name ?? "Ghana Trails";
+
   return (
     <article className="pb-24">
       {/* Hero */}
       <div className="relative w-full h-[60vh] md:h-[70vh] bg-border overflow-hidden">
-        <Image
-          src={article.coverImage}
-          alt={article.title}
-          fill
-          priority
-          className="object-cover"
-        />
+        {article.cover_image && (
+          <Image
+            src={article.cover_image}
+            alt={article.title}
+            fill
+            priority
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/10" />
       </div>
 
@@ -52,10 +57,12 @@ export default function ArticlePage({ params }: ArticlePageProps) {
               <span className="font-body text-[10px] uppercase font-bold tracking-[0.3em] text-accent border border-accent/20 px-3 py-1">
                 {article.category}
               </span>
-              <div className="flex items-center text-muted space-x-2 text-[10px] uppercase tracking-widest">
-                <Clock size={12} />
-                <span>{article.readTime} MIN READ</span>
-              </div>
+              {article.read_time && (
+                <div className="flex items-center text-muted space-x-2 text-[10px] uppercase tracking-widest">
+                  <Clock size={12} />
+                  <span>{article.read_time} MIN READ</span>
+                </div>
+              )}
             </div>
 
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-text leading-tight">
@@ -65,25 +72,29 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             <div className="flex flex-wrap items-center gap-8 text-muted border-t border-border pt-8">
               <div className="flex items-center space-x-2">
                 <User size={14} className="text-accent" />
-                <span className="font-body text-xs uppercase tracking-wider">{article.author}</span>
+                <span className="font-body text-xs uppercase tracking-wider">{authorName}</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Calendar size={14} className="text-accent" />
-                <span className="font-body text-xs uppercase tracking-wider">{formatDate(article.publishedAt)}</span>
-              </div>
+              {article.published_at && (
+                <div className="flex items-center space-x-2">
+                  <Calendar size={14} className="text-accent" />
+                  <span className="font-body text-xs uppercase tracking-wider">{formatDate(article.published_at)}</span>
+                </div>
+              )}
             </div>
           </header>
 
           {/* Body */}
-          <div className="prose prose-slate prose-lg max-w-none 
-            font-body text-text/80 leading-relaxed
-            prose-headings:font-display prose-headings:text-text prose-headings:font-semibold
-            prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-            prose-blockquote:font-display prose-blockquote:italic prose-blockquote:text-muted prose-blockquote:border-accent
-            prose-img:rounded-sm shadow-sm
-          ">
-            <MDXContent code={article.body.code} />
-          </div>
+          {article.body_mdx && (
+            <div className="prose prose-slate prose-lg max-w-none 
+              font-body text-text/80 leading-relaxed
+              prose-headings:font-display prose-headings:text-text prose-headings:font-semibold
+              prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+              prose-blockquote:font-display prose-blockquote:italic prose-blockquote:text-muted prose-blockquote:border-accent
+              prose-img:rounded-sm shadow-sm
+            ">
+              <MDXContent source={article.body_mdx} />
+            </div>
+          )}
         </div>
       </div>
 

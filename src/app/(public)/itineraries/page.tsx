@@ -1,7 +1,10 @@
-import { allItineraries } from "contentlayer/generated";
+import { getItineraries } from "@/lib/cms/itineraries";
 import ItineraryCard from "@/components/ItineraryCard";
 
-export default function ItinerariesPage() {
+export default async function ItinerariesPage() {
+  const itineraries = await getItineraries();
+  const sorted = [...itineraries].sort((a, b) => (b.duration ?? 0) - (a.duration ?? 0));
+
   return (
     <div className="pt-32 pb-24 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
@@ -12,13 +15,13 @@ export default function ItinerariesPage() {
             Curated Itineraries
           </h1>
           <p className="font-body text-muted text-lg leading-relaxed">
-            Whether you have three days or two weeks, these routes are designed to help you experience the best of Ghana's history, nature, and modern culture.
+            Whether you have three days or two weeks, these routes are designed to help you experience the best of Ghana&apos;s history, nature, and modern culture.
           </p>
         </div>
 
         {/* List */}
         <div className="space-y-16">
-          {allItineraries.sort((a, b) => b.duration - a.duration).map((itinerary) => (
+          {sorted.map((itinerary) => (
             <ItineraryCard key={itinerary.slug} itinerary={itinerary} />
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { allRecipes } from "contentlayer/generated";
+import { getRecipeBySlug, getRecipes } from "@/lib/cms/recipes";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import RecipeCard from "@/components/RecipeCard";
@@ -11,21 +11,23 @@ interface RecipePageProps {
 }
 
 export async function generateStaticParams() {
-  return allRecipes.map((recipe) => ({
-    slug: recipe.slug,
-  }));
+  const recipes = await getRecipes();
+  return recipes.map((recipe) => ({ slug: recipe.slug }));
 }
 
-export default function RecipePage({ params }: RecipePageProps) {
-  const recipe = allRecipes.find((r) => r.slug === params.slug);
+export default async function RecipePage({ params }: RecipePageProps) {
+  const [recipe, allRecipes] = await Promise.all([
+    getRecipeBySlug(params.slug),
+    getRecipes(),
+  ]);
 
-  if (!recipe) {
-    notFound();
-  }
+  if (!recipe) notFound();
 
   const relatedRecipes = allRecipes
     .filter((r) => r.slug !== recipe.slug && r.category === recipe.category)
     .slice(0, 3);
+
+  const totalTime = (recipe.prep_time ?? 0) + (recipe.cook_time ?? 0);
 
   return (
     <article className="pb-24">
@@ -36,7 +38,7 @@ export default function RecipePage({ params }: RecipePageProps) {
             <div className="space-y-8">
               <div className="space-y-4">
                 <span className="font-body text-[10px] uppercase font-bold tracking-[0.3em] text-accent">
-                  {recipe.category.replace("-", " ")}
+                  {(recipe.category ?? "").replace("-", " ")}
                 </span>
                 <h1 className="font-display text-5xl md:text-7xl text-text leading-tight">
                   {recipe.title}
@@ -48,38 +50,46 @@ export default function RecipePage({ params }: RecipePageProps) {
 
               {/* At-a-glance bar */}
               <div className="flex flex-wrap gap-8 py-8 border-y border-border">
-                <div className="flex items-center space-x-3">
-                  <Clock size={20} className="text-accent" />
-                  <div className="flex flex-col">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Time</span>
-                    <span className="font-body text-sm font-semibold">{recipe.prepTime + recipe.cookTime} MINS</span>
+                {totalTime > 0 && (
+                  <div className="flex items-center space-x-3">
+                    <Clock size={20} className="text-accent" />
+                    <div className="flex flex-col">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Time</span>
+                      <span className="font-body text-sm font-semibold">{totalTime} MINS</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Users size={20} className="text-accent" />
-                  <div className="flex flex-col">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Serves</span>
-                    <span className="font-body text-sm font-semibold">{recipe.servings} PERSONS</span>
+                )}
+                {recipe.servings && (
+                  <div className="flex items-center space-x-3">
+                    <Users size={20} className="text-accent" />
+                    <div className="flex flex-col">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Serves</span>
+                      <span className="font-body text-sm font-semibold">{recipe.servings} PERSONS</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <BarChart size={20} className="text-accent" />
-                  <div className="flex flex-col">
-                    <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Difficulty</span>
-                    <span className="font-body text-sm font-semibold uppercase">{recipe.difficulty}</span>
+                )}
+                {recipe.difficulty && (
+                  <div className="flex items-center space-x-3">
+                    <BarChart size={20} className="text-accent" />
+                    <div className="flex flex-col">
+                      <span className="font-body text-[10px] uppercase font-bold tracking-widest text-muted">Difficulty</span>
+                      <span className="font-body text-sm font-semibold uppercase">{recipe.difficulty}</span>
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
 
             <div className="relative aspect-square md:aspect-[4/3] lg:aspect-square bg-border overflow-hidden rounded-sm shadow-2xl">
-              <Image
-                src={recipe.coverImage}
-                alt={recipe.title}
-                fill
-                priority
-                className="object-cover"
-              />
+              {recipe.cover_image && (
+                <Image
+                  src={recipe.cover_image}
+                  alt={recipe.title}
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -96,7 +106,7 @@ export default function RecipePage({ params }: RecipePageProps) {
                </div>
                <h2 className="font-display text-3xl text-text mb-8 border-b border-accent/20 pb-4">Ingredients</h2>
                <ul className="space-y-6">
-                 {recipe.ingredients.map((ingredient, i) => (
+                 {(recipe.ingredients ?? []).map((ingredient, i) => (
                    <li key={i} className="flex gap-4">
                      <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0" />
                      <span className="font-body text-text/80 leading-relaxed">{ingredient}</span>
@@ -110,7 +120,7 @@ export default function RecipePage({ params }: RecipePageProps) {
           <div className="lg:col-span-8 space-y-12">
             <h2 className="font-display text-4xl text-text mb-8">Instructions</h2>
             <div className="space-y-12">
-              {recipe.instructions.map((step, i) => (
+              {(recipe.instructions ?? []).map((step, i) => (
                 <div key={i} className="flex gap-8 group">
                   <span className="font-display text-5xl text-accent/20 group-hover:text-accent/40 transition-colors shrink-0 leading-none">
                     {String(i + 1).padStart(2, '0')}
@@ -125,9 +135,9 @@ export default function RecipePage({ params }: RecipePageProps) {
             {/* Cook's Tip */}
             {recipe.tips && (
               <div className="mt-20 p-8 md:p-12 bg-accent/5 border border-accent/10 rounded-sm">
-                <h3 className="font-display text-2xl text-accent mb-4">Cook's Tips</h3>
+                <h3 className="font-display text-2xl text-accent mb-4">Cook&apos;s Tips</h3>
                 <p className="font-body text-text/70 italic leading-relaxed">
-                  "{recipe.tips}"
+                  &ldquo;{recipe.tips}&rdquo;
                 </p>
               </div>
             )}
