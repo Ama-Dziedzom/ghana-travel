@@ -56,6 +56,8 @@ const navItems = [
   },
 ]
 
+import Image from 'next/image'
+
 export default function AdminSidebar() {
   const pathname = usePathname()
   const router = useRouter()
@@ -70,13 +72,15 @@ export default function AdminSidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-40 w-64 flex flex-col bg-[#0F0E0C] border-r border-white/5">
       {/* Logo */}
-      <div className="flex items-center gap-3 px-6 py-6 border-b border-white/5">
-        <div className="w-7 h-7 bg-[#C9963A] flex items-center justify-center shrink-0">
-          <span className="font-display text-white text-xs font-bold">G</span>
-        </div>
-        <div>
-          <span className="font-display text-white text-base tracking-wide">Ghana Trails</span>
-          <p className="font-body text-white/30 text-[9px] uppercase tracking-[0.2em]">CMS</p>
+      <div className="flex items-center gap-4 px-6 py-10 border-b border-white/5 h-20 overflow-hidden">
+        <div className="relative w-40 h-40 shrink-0">
+          <Image
+            src="/logo-dark-bg.png"
+            alt="Ghana. CMS"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
       </div>
 

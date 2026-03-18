@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+const img = new Image();
+img.src = 'brand_logo_text_cropped_1773867625280.png';
+img.onload = () => {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    let minX = canvas.width, minY = canvas.height, maxX = 0, maxY = 0;
+    
+    for (let y = 0; y < canvas.height; y++) {
+        for (let x = 0; x < canvas.width; x++) {
+            const index = (y * canvas.width + x) * 4;
+            const r = data[index], g = data[index + 1], b = data[index + 2];
+            // If not white
+            if (r < 250 || g < 250 || b < 250) {
+                if (x < minX) minX = x;
+                if (y < minY) minY = y;
+                if (x > maxX) maxX = x;
+                if (y > maxY) maxY = y;
+            }
+        }
+    }
+    
+    const width = maxX - minX;
+    const height = maxY - minY;
+    const croppedCanvas = document.createElement('canvas');
+    croppedCanvas.width = width;
+    croppedCanvas.height = height;
+    const croppedCtx = croppedCanvas.getContext('2d');
+    
+    // Draw only the logo and make background transparent
+    for (let y = minY; y <= maxY; y++) {
+        for (let x = minX; x <= maxX; x++) {
+            const index = (y * canvas.width + x) * 4;
+            const r = data[index], g = data[index + 1], b = data[index + 2];
+            if (r < 250 || g < 250 || b < 250) {
+                croppedCtx.fillStyle = `rgb(${r},${g},${b})`;
+                croppedCtx.fillRect(x - minX, y - minY, 1, 1);
+            }
+        }
+    }
+    
+    const dataURL = croppedCanvas.toDataURL('image/png');
+    console.log('---RESULT---');
+    console.log(dataURL);
+    console.log('---END---');
+};
+</script>
+</body>
+</html>

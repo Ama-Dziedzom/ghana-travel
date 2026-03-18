@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react'
 import { createRecipe, updateRecipe } from '@/lib/actions/recipes'
 import ImageUpload from './ImageUpload'
 import type { Recipe } from '@/lib/supabase/types'
-import { Loader2, AlertCircle, Save, Globe, Plus, Trash2, GripVertical, ChevronDown } from 'lucide-react'
+import { Loader2, AlertCircle, Save, Globe, Plus, Trash2, GripVertical, ChevronDown, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
 
 const CATEGORIES = [
@@ -103,6 +103,7 @@ export default function RecipeForm({ recipe }: { recipe?: Recipe }) {
 
   const [title, setTitle]           = useState(recipe?.title ?? '')
   const [slug, setSlug]             = useState(recipe?.slug ?? '')
+  const [isSlugModified, setIsSlugModified] = useState(false)
   const [category, setCategory]     = useState(recipe?.category ?? 'soups')
   const [description, setDescription] = useState(recipe?.description ?? '')
   const [coverImage, setCoverImage] = useState(recipe?.cover_image ?? '')
@@ -119,7 +120,19 @@ export default function RecipeForm({ recipe }: { recipe?: Recipe }) {
 
   function handleTitleChange(value: string) {
     setTitle(value)
-    if (!isEdit) setSlug(slugify(value))
+    if (!isSlugModified && !isEdit) {
+      setSlug(slugify(value))
+    }
+  }
+
+  function handleSlugChange(value: string) {
+    setIsSlugModified(true)
+    setSlug(slugify(value))
+  }
+
+  function handleResetSlug() {
+    setIsSlugModified(false)
+    setSlug(slugify(title))
   }
 
   async function handleSave(status: 'draft' | 'published') {
@@ -203,10 +216,22 @@ export default function RecipeForm({ recipe }: { recipe?: Recipe }) {
           </FormField>
 
           <FormField label="Slug" hint="URL-safe identifier — auto-generated from title.">
-            <div className="flex items-center">
+            <div className="flex items-center group/slug">
               <span className="font-body text-xs text-[#7A7162] bg-[#F5F3EF] border border-r-0 border-[#E8E2D9] px-3 py-3 whitespace-nowrap">/taste/</span>
-              <input type="text" value={slug} onChange={e => setSlug(e.target.value)} placeholder="ghanaian-jollof-rice"
-                className="flex-1 bg-white border border-[#E8E2D9] px-4 py-3 font-body text-sm text-[#1C1C1C] placeholder:text-[#C4BDB4] focus:outline-none focus:border-[#C9963A] transition-colors" />
+              <div className="flex-1 relative">
+                <input type="text" value={slug} onChange={e => handleSlugChange(e.target.value)} placeholder="ghanaian-jollof-rice"
+                  className="w-full bg-white border border-[#E8E2D9] px-4 py-3 pr-10 font-body text-sm text-[#1C1C1C] placeholder:text-[#C4BDB4] focus:outline-none focus:border-[#C9963A] transition-colors" />
+                {(isSlugModified || (isEdit && slug !== slugify(title))) && (
+                  <button
+                    type="button"
+                    onClick={handleResetSlug}
+                    title="Reset to title-based slug"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#C4BDB4] hover:text-[#C9963A] transition-colors"
+                  >
+                    <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+                  </button>
+                )}
+              </div>
             </div>
           </FormField>
 

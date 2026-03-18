@@ -6,7 +6,7 @@ import ImageUpload from './ImageUpload'
 import type { Itinerary, ItineraryDay } from '@/lib/supabase/types'
 import {
   Loader2, AlertCircle, Save, Globe,
-  Plus, Trash2, ChevronDown, ChevronUp, GripVertical,
+  Plus, Trash2, ChevronDown, ChevronUp, GripVertical, RefreshCw,
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -139,6 +139,7 @@ export default function ItineraryForm({ itinerary }: { itinerary?: ItineraryWith
 
   const [title, setTitle]             = useState(itinerary?.title ?? '')
   const [slug, setSlug]               = useState(itinerary?.slug ?? '')
+  const [isSlugModified, setIsSlugModified] = useState(false)
   const [summary, setSummary]         = useState(itinerary?.summary ?? '')
   const [coverImage, setCoverImage]   = useState(itinerary?.cover_image ?? '')
   const [mapEmbedUrl, setMapEmbedUrl] = useState(itinerary?.map_embed_url ?? '')
@@ -172,7 +173,19 @@ export default function ItineraryForm({ itinerary }: { itinerary?: ItineraryWith
 
   function handleTitleChange(value: string) {
     setTitle(value)
-    if (!isEdit) setSlug(slugify(value))
+    if (!isSlugModified && !isEdit) {
+      setSlug(slugify(value))
+    }
+  }
+
+  function handleSlugChange(value: string) {
+    setIsSlugModified(true)
+    setSlug(slugify(value))
+  }
+
+  function handleResetSlug() {
+    setIsSlugModified(false)
+    setSlug(slugify(title))
   }
 
   function addDay() {
@@ -275,10 +288,22 @@ export default function ItineraryForm({ itinerary }: { itinerary?: ItineraryWith
           </FormField>
 
           <FormField label="Slug" hint="URL-safe identifier — auto-generated from title.">
-            <div className="flex items-center">
+            <div className="flex items-center group/slug">
               <span className="font-body text-xs text-[#7A7162] bg-[#F5F3EF] border border-r-0 border-[#E8E2D9] px-3 py-3 whitespace-nowrap">/itineraries/</span>
-              <input type="text" value={slug} onChange={e => setSlug(e.target.value)} placeholder="3-days-in-accra"
-                className="flex-1 bg-white border border-[#E8E2D9] px-4 py-3 font-body text-sm text-[#1C1C1C] placeholder:text-[#C4BDB4] focus:outline-none focus:border-[#C9963A] transition-colors" />
+              <div className="flex-1 relative">
+                <input type="text" value={slug} onChange={e => handleSlugChange(e.target.value)} placeholder="3-days-in-accra"
+                  className="w-full bg-white border border-[#E8E2D9] px-4 py-3 pr-10 font-body text-sm text-[#1C1C1C] placeholder:text-[#C4BDB4] focus:outline-none focus:border-[#C9963A] transition-colors" />
+                {(isSlugModified || (isEdit && slug !== slugify(title))) && (
+                  <button
+                    type="button"
+                    onClick={handleResetSlug}
+                    title="Reset to title-based slug"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#C4BDB4] hover:text-[#C9963A] transition-colors"
+                  >
+                    <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
+                  </button>
+                )}
+              </div>
             </div>
           </FormField>
 

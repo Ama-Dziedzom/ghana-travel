@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { background: #333; color: white; font-family: sans-serif; }
+        #canvas { border: 1px solid red; display: block; margin: 20px auto; }
+        pre { word-wrap: break-word; white-space: pre-wrap; font-size: 8px; border: 1px solid #555; padding: 10px; height: 300px; overflow: scroll; }
+    </style>
+</head>
+<body>
+    <h3>Logo Processor (Crop + Alpha)</h3>
+    <canvas id="canvas"></canvas>
+    <h4>Base64 Result:</h4>
+    <pre id="result">Processing...</pre>
+    <script>
+    const img = new Image();
+    img.src = 'brand_logo_text_light_bg_bold_1773868549254.png';
+    img.onload = () => {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        let minX = canvas.width, minY = canvas.height, maxX = 0, maxY = 0;
+        
+        // Find bounding box based on luminance (remove white/near-white)
+        for (let y = 0; y < canvas.height; y++) {
+            for (let x = 0; x < canvas.width; x++) {
+                const index = (y * canvas.width + x) * 4;
+                const r = data[index], g = data[index + 1], b = data[index + 2];
+                const lum = (r + g + b) / 3;
+                if (lum < 245) { // Threshold for not white
+                    if (x < minX) minX = x;
+                    if (y < minY) minY = y;
+                    if (x > maxX) maxX = x;
+                    if (y > maxY) maxY = y;
+                }
+            }
+        }
+        
+        const width = maxX - minX + 1;
+        const height = maxY - minY + 1;
+        if (width <= 0 || height <= 0) {
+            document.getElementById('result').innerText = "ERROR: Could not find logo content (too white?)";
+            return;
+        }
+
+        const croppedCanvas = document.createElement('canvas');
+        croppedCanvas.width = width;
+        croppedCanvas.height = height;
+        const croppedCtx = croppedCanvas.getContext('2d');
+        const croppedImgData = croppedCtx.createImageData(width, height);
+        
+        for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+                const sourceX = x + minX;
+                const sourceY = y + minY;
+                const sourceIndex = (sourceY * canvas.width + sourceX) * 4;
+                const targetIndex = (y * width + x) * 4;
+                
+                const r = data[sourceIndex];
+                const g = data[sourceIndex+1];
+                const b = data[sourceIndex+2];
+                const lum = (r + g + b) / 3;
+                
+                croppedImgData.data[targetIndex] = r;
+                croppedImgData.data[targetIndex+1] = g;
+                croppedImgData.data[targetIndex+2] = b;
+                // Alpha: black is 255, white is 0. Smoothly transition for better anti-aliasing.
+                croppedImgData.data[targetIndex+3] = Math.max(0, 255 - (lum - 10) * 1.05); 
+            }
+        }
+        
+        croppedCtx.putImageData(croppedImgData, 0, 0);
+        const dataURL = croppedCanvas.toDataURL('image/png');
+        document.getElementById('result').innerText = dataURL;
+        console.log('SUCCESS');
+    };
+    </script>
+</body>
+</html>

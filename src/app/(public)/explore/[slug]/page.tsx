@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MDXContent } from "@/components/MDXContent";
 import { formatDate } from "@/lib/utils";
 import ArticleCard from "@/components/ArticleCard";
+import CommentSection from "@/components/CommentSection";
 import { Clock, Calendar, User } from "lucide-react";
 
 interface ArticlePageProps {
@@ -95,6 +96,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <MDXContent source={article.body_mdx} />
             </div>
           )}
+
+          {/* Comments */}
+          <CommentSection articleId={article.id} articleSlug={article.slug} />
         </div>
       </div>
 
