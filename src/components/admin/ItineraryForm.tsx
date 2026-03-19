@@ -9,6 +9,7 @@ import {
   Plus, Trash2, ChevronDown, ChevronUp, GripVertical, RefreshCw,
 } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from 'react-hot-toast'
 
 interface DayStop {
   morning: string
@@ -233,7 +234,10 @@ export default function ItineraryForm({ itinerary }: { itinerary?: ItineraryWith
 
       if (result?.error) {
         setError(result.error)
+        toast.error(`Error: ${result.error}`)
         setPendingAction(null)
+      } else {
+        toast.success(`Itinerary ${status === 'published' ? 'published' : 'saved as draft'}`)
       }
     })
   }

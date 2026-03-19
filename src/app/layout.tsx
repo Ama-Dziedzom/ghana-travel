@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Explore the rich culture, delicious food, and beautiful landscapes of Ghana. A clean, minimal guide to West Africa's gold coast.",
 };
 
+import { Toaster } from "react-hot-toast";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="antialiased bg-bg text-text selection:bg-accent/30">
+        <Toaster position="bottom-right" />
         {children}
       </body>
     </html>

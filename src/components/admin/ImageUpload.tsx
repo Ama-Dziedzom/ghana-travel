@@ -37,15 +37,16 @@ function ImagePickerModal({
   useEffect(() => {
     async function loadLibrary() {
       setLoading(true)
-      const { data } = await supabase.storage.from('images').list('', {
+      // List files inside the 'uploads' folder where images are actually stored
+      const { data } = await supabase.storage.from('images').list('uploads', {
         limit: 200,
         sortBy: { column: 'updated_at', order: 'desc' },
       })
       const files = (data ?? [])
-        .filter(f => f.name !== '.emptyFolderPlaceholder' && !f.name.endsWith('/'))
+        .filter(f => f.name !== '.emptyFolderPlaceholder' && f.metadata && (f.metadata as any).mimetype)
         .map(f => ({
           name: f.name,
-          publicUrl: supabase.storage.from('images').getPublicUrl(f.name).data.publicUrl,
+          publicUrl: supabase.storage.from('images').getPublicUrl(`uploads/${f.name}`).data.publicUrl,
         }))
       setLibrary(files)
       setLoading(false)

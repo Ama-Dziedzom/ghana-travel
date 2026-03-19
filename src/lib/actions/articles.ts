@@ -48,18 +48,18 @@ export async function createArticle(formData: FormData): Promise<{ error?: strin
   if (!title) return { error: 'Title is required.' }
   if (!slug)  return { error: 'Slug is required.' }
 
-  const { error } = await supabase.from('articles').insert({
+  const { data, error } = await supabase.from('articles').insert({
     title, slug, category, excerpt, cover_image,
     body_mdx, read_time, status, published_at,
     author_id,
-  })
+  }).select('id').single()
 
   if (error) return { error: error.message }
 
   revalidatePath('/admin/articles')
   revalidatePath('/admin')
   revalidatePath('/explore')
-  redirect('/admin/articles')
+  redirect(`/admin/articles/${data.id}`)
 }
 
 // ── UPDATE ────────────────────────────────────────────────────────────────────
@@ -108,7 +108,11 @@ export async function updateArticle(
   revalidatePath('/admin')
   revalidatePath(`/explore/${slug}`)
   revalidatePath('/explore')
-  redirect('/admin/articles')
+  // We can redirect to the list, or just let the caller handle it. 
+  // Redirecting back to the article list is fine for 'Update', 
+  // but let's make it more flexible or stay on the page.
+  // The user said things 'clear' so staying on page might help them see it saved.
+  redirect(`/admin/articles/${id}`)
 }
 
 // ── DELETE ────────────────────────────────────────────────────────────────────

@@ -2,6 +2,8 @@ import { createAdminClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import ItineraryForm from '@/components/admin/ItineraryForm'
 
+export const dynamic = 'force-dynamic'
+
 interface Props { params: { id: string } }
 
 export default async function EditItineraryPage({ params }: Props) {

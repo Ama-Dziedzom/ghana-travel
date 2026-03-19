@@ -75,7 +75,7 @@ export default function AdminSidebar() {
       <div className="flex items-center gap-4 px-6 py-10 border-b border-white/5 h-20 overflow-hidden">
         <div className="relative w-40 h-40 shrink-0">
           <Image
-            src="/logo-dark-bg.png"
+            src="/logo-white.svg"
             alt="Ghana. CMS"
             fill
             className="object-contain"

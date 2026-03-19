@@ -86,15 +86,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
           {/* Body */}
           {article.body_mdx && (
-            <div className="prose prose-slate prose-lg max-w-none 
-              font-body text-text/80 leading-relaxed
-              prose-headings:font-display prose-headings:text-text prose-headings:font-semibold
-              prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-              prose-blockquote:font-display prose-blockquote:italic prose-blockquote:text-muted prose-blockquote:border-accent
-              prose-img:rounded-sm shadow-sm
-            ">
-              <MDXContent source={article.body_mdx} />
-            </div>
+            <MDXContent source={article.body_mdx} />
           )}
 
           {/* Comments */}

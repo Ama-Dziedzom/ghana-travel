@@ -7,6 +7,7 @@ import ImageUpload from './ImageUpload'
 import type { Article } from '@/lib/supabase/types'
 import { Loader2, AlertCircle, Save, Globe, ChevronDown, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from 'react-hot-toast'
 
 // Dynamically import the MDX editor to avoid SSR issues
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false })
@@ -94,7 +95,11 @@ export default function ArticleForm({ article }: ArticleFormProps) {
 
       if (result?.error) {
         setError(result.error)
+        toast.error(`Error: ${result.error}`)
         setPendingAction(null)
+      } else {
+        toast.success(`Article ${status === 'published' ? 'published' : 'saved as draft'}`)
+        // The action redirects, so we don't need to do much here
       }
     })
   }
@@ -234,8 +239,9 @@ export default function ArticleForm({ article }: ArticleFormProps) {
             <div className="relative">
               <select
                 value={category}
+                id="category-select"
                 onChange={(e) => setCategory(e.target.value as 'culture' | 'history' | 'festivals' | 'neighbourhoods')}
-                className="w-full appearance-none bg-white border border-[#E8E2D9] px-4 py-3 pr-8 font-body text-sm text-[#1C1C1C] focus:outline-none focus:border-[#C9963A] transition-colors"
+                className="w-full bg-white border border-[#E8E2D9] px-4 py-3 font-body text-sm text-[#1C1C1C] focus:outline-none focus:border-[#C9963A] transition-colors cursor-pointer hover:bg-[#FAF7F2]"
               >
                 {CATEGORIES.map((c) => (
                   <option key={c.value} value={c.value}>{c.label}</option>

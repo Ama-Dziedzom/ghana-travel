@@ -62,9 +62,14 @@ export default function AdminLoginPage() {
 
         <div className="relative z-10 flex flex-col justify-between p-16 w-full">
           {/* Logo */}
-          <div>
-            <span className="font-display text-2xl text-white tracking-wide">Ghana Trails</span>
-            <div className="w-8 h-px bg-[#C9963A] mt-2" />
+          <div className="relative w-40 h-12">
+            <Image
+              src="/logo-white.svg"
+              alt="Ghana Trails"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
 
           {/* Tagline */}
@@ -90,9 +95,17 @@ export default function AdminLoginPage() {
       <div className="flex-1 flex items-center justify-center bg-[#FAF7F2] px-6 py-12">
         <div className="w-full max-w-md">
           {/* Mobile logo */}
-          <div className="lg:hidden mb-12 text-center">
-            <span className="font-display text-3xl text-[#1C1C1C]">Ghana Trails</span>
-            <div className="w-8 h-px bg-[#C9963A] mx-auto mt-2" />
+          {/* Mobile logo */}
+          <div className="lg:hidden mb-12 flex justify-center">
+            <div className="relative w-40 h-10">
+              <Image
+                src="/logo.svg"
+                alt="Ghana Trails"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
 
           <div className="space-y-2 mb-10">

@@ -56,7 +56,7 @@ export async function createItinerary(formData: FormData): Promise<{ error?: str
   revalidatePath('/admin/itineraries')
   revalidatePath('/admin')
   revalidatePath('/itineraries')
-  redirect('/admin/itineraries')
+  redirect(`/admin/itineraries/${itinerary.id}`)
 }
 
 // ── UPDATE ────────────────────────────────────────────────────────────────────
@@ -108,7 +108,7 @@ export async function updateItinerary(
   revalidatePath('/admin')
   revalidatePath(`/itineraries/${slug}`)
   revalidatePath('/itineraries')
-  redirect('/admin/itineraries')
+  redirect(`/admin/itineraries/${id}`)
 }
 
 // ── DELETE ────────────────────────────────────────────────────────────────────

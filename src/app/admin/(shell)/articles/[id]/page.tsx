@@ -2,6 +2,11 @@ import { createAdminClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import ArticleForm from '@/components/admin/ArticleForm'
 
+// Force dynamic rendering so we always fetch fresh article data.
+// Without this, Next.js may cache the page because createAdminClient()
+// doesn't read cookies, making the fetch appear "static".
+export const dynamic = 'force-dynamic'
+
 interface EditArticlePageProps {
   params: { id: string }
 }

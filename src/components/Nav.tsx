@@ -57,7 +57,7 @@ const Nav = () => {
         <Link href="/" className="group flex items-center h-10 overflow-hidden">
           <div className="relative w-40 h-40 -translate-y-[1px]">
             <Image
-              src={useLightNav ? "/logo-dark-bg.png" : "/logo-light-bg.png"}
+              src={useLightNav ? "/logo-white.svg" : "/logo.svg"}
               alt="Ghana. Logo"
               fill
               className="object-contain"

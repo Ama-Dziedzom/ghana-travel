@@ -2,6 +2,8 @@ import { createAdminClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import RecipeForm from '@/components/admin/RecipeForm'
 
+export const dynamic = 'force-dynamic'
+
 interface Props { params: { id: string } }
 
 export default async function EditRecipePage({ params }: Props) {

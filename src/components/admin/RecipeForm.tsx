@@ -6,6 +6,7 @@ import ImageUpload from './ImageUpload'
 import type { Recipe } from '@/lib/supabase/types'
 import { Loader2, AlertCircle, Save, Globe, Plus, Trash2, GripVertical, ChevronDown, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
+import { toast } from 'react-hot-toast'
 
 const CATEGORIES = [
   { value: 'soups', label: 'Soups' },
@@ -161,7 +162,10 @@ export default function RecipeForm({ recipe }: { recipe?: Recipe }) {
 
       if (result?.error) {
         setError(result.error)
+        toast.error(`Error: ${result.error}`)
         setPendingAction(null)
+      } else {
+        toast.success(`Recipe ${status === 'published' ? 'published' : 'saved as draft'}`)
       }
     })
   }

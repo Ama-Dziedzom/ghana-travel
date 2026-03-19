@@ -21,22 +21,22 @@ function parseList(raw: string): string[] {
 export async function createRecipe(formData: FormData): Promise<{ error?: string } | void> {
   const supabase = createAdminClient()
 
-  const title        = (formData.get('title') as string).trim()
-  const slug         = ((formData.get('slug') as string) || slugify(title)).trim()
-  const category     = formData.get('category') as string
-  const description  = (formData.get('description') as string) || null
-  const cover_image  = (formData.get('cover_image') as string) || null
-  const prep_time    = parseInt(formData.get('prep_time') as string) || null
-  const cook_time    = parseInt(formData.get('cook_time') as string) || null
-  const servings     = parseInt(formData.get('servings') as string) || null
-  const difficulty   = (formData.get('difficulty') as string) || null
-  const tips         = (formData.get('tips') as string) || null
-  const status       = formData.get('status') as 'draft' | 'published'
-  const ingredients  = parseList(formData.get('ingredients') as string)
+  const title = (formData.get('title') as string).trim()
+  const slug = ((formData.get('slug') as string) || slugify(title)).trim()
+  const category = formData.get('category') as string
+  const description = (formData.get('description') as string) || null
+  const cover_image = (formData.get('cover_image') as string) || null
+  const prep_time = parseInt(formData.get('prep_time') as string) || null
+  const cook_time = parseInt(formData.get('cook_time') as string) || null
+  const servings = parseInt(formData.get('servings') as string) || null
+  const difficulty = (formData.get('difficulty') as string) || null
+  const tips = (formData.get('tips') as string) || null
+  const status = formData.get('status') as 'draft' | 'published'
+  const ingredients = parseList(formData.get('ingredients') as string)
   const instructions = parseList(formData.get('instructions') as string)
 
   if (!title) return { error: 'Title is required.' }
-  if (!slug)  return { error: 'Slug is required.' }
+  if (!slug) return { error: 'Slug is required.' }
 
   const { error } = await supabase.from('recipes').insert({
     title, slug, category, description, cover_image,
@@ -59,22 +59,22 @@ export async function updateRecipe(
 ): Promise<{ error?: string } | void> {
   const supabase = createAdminClient()
 
-  const title        = (formData.get('title') as string).trim()
-  const slug         = (formData.get('slug') as string).trim()
-  const category     = formData.get('category') as string
-  const description  = (formData.get('description') as string) || null
-  const cover_image  = (formData.get('cover_image') as string) || null
-  const prep_time    = parseInt(formData.get('prep_time') as string) || null
-  const cook_time    = parseInt(formData.get('cook_time') as string) || null
-  const servings     = parseInt(formData.get('servings') as string) || null
-  const difficulty   = (formData.get('difficulty') as string) || null
-  const tips         = (formData.get('tips') as string) || null
-  const status       = formData.get('status') as 'draft' | 'published'
-  const ingredients  = parseList(formData.get('ingredients') as string)
+  const title = (formData.get('title') as string).trim()
+  const slug = (formData.get('slug') as string).trim()
+  const category = formData.get('category') as string
+  const description = (formData.get('description') as string) || null
+  const cover_image = (formData.get('cover_image') as string) || null
+  const prep_time = parseInt(formData.get('prep_time') as string) || null
+  const cook_time = parseInt(formData.get('cook_time') as string) || null
+  const servings = parseInt(formData.get('servings') as string) || null
+  const difficulty = (formData.get('difficulty') as string) || null
+  const tips = (formData.get('tips') as string) || null
+  const status = formData.get('status') as 'draft' | 'published'
+  const ingredients = parseList(formData.get('ingredients') as string)
   const instructions = parseList(formData.get('instructions') as string)
 
   if (!title) return { error: 'Title is required.' }
-  if (!slug)  return { error: 'Slug is required.' }
+  if (!slug) return { error: 'Slug is required.' }
 
   const { error } = await supabase
     .from('recipes')
