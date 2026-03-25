@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
@@ -13,29 +14,64 @@ import {
   Info,
   CheckCircle2,
   Clock,
-  ArrowRight
+  ArrowRight,
+  X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import GuideModal from "@/components/GuideModal";
 
 const TravelTipsPage = () => {
+  const [selectedTip, setSelectedTip] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const featuredTips = [
     {
       image: "/images/tips-planning.png",
       category: "Planning",
       title: "The Best Time to Experience Ghana",
-      content: "Timing is everything. From the vibrant 'Dirty December' festivities to the tranquil dry season, understand when to visit for your ideal weather and culture.",
+      content: "While Ghana's tropical climate is warm year-round, timing your visit can drastically change your experience. From the vibrant 'Dirty December' festivities to the tranquil dry season, discover your ideal window.",
+      highlights: [
+        "Harmattan Skies",
+        "Dirty December",
+        "Coastal Rhythms"
+      ],
+      fullContent: `Ghana has a tropical climate, but the weather varies significantly between the north and south. 
+
+The primary dry season runs from November to March. This is the most popular time for visitors, especially in December when the country comes alive with festivals, concerts, and the famous 'Year of Return' legacy events.
+
+July and August are also great months to visit. Although it's part of the minor wet season, the temperatures are cooler and the rain is less frequent than in June. This period is also host to several major traditional festivals across the country.`
     },
     {
       image: "/images/tips-transport.png",
       category: "Movement",
       title: "Mastering the Art of the 'Trotro'",
-      content: "Navigating Ghana's local transport is an adventure in itself. Learn to spot your destination, understand signs, and ride like a local.",
+      content: "Navigating Ghana's local transport is an adventure in itself. These ubiquitous minibuses are the heartbeat of the country's movement. Learn to ride like a local.",
+      highlights: [
+        "Hand Signals",
+        "Station Masters",
+        "Small Change"
+      ],
+      fullContent: `The 'Trotro' is more than just a minibus; it is the most authentic way to experience the rhythm of Ghanaian life. 
+
+To catch one, you need to understand the hand signals: pointing up usually means you're headed to the center or a major station, while pointing down means you're going to a closer, specific stop. 
+
+Always carry small change for the 'Mate' (conductor). The stations can be chaotic, but there is a system—look for the station master or simply call out your destination, and someone will guide you to the right vehicle.`
     },
     {
       image: "/images/tips-momo.png",
       category: "Finance",
       title: "Cashless: Mobile Money (MoMo)",
-      content: "Ghana's economy runs on digital wallets. Set up your SIM, register for MoMo, and pay for everything from snacks to luxury hotels.",
+      content: "Ghana's economy runs on digital wallets. From street food to luxury hotels, MoMo is the standard for fast, secure payments without carrying bundles of cash.",
+      highlights: [
+        "Instant Setup",
+        "Phone as Wallet",
+        "Safe & Secure"
+      ],
+      fullContent: `Mobile Money, or MoMo, is the lifeblood of the modern Ghanaian economy. Setting it up is the first thing you should do upon arrival.
+
+Visit any MTN or Vodafone (now Telecel) office with your passport to get a SIM card and register for a mobile money account. 
+
+Once registered, you can 'cash in' at any of the thousands of bright yellow or red kiosks you see on every street corner. Use it to pay for your 'Bolt' or 'Uber' rides, settle bills at restaurants, and even buy groceries at the market.`
     }
   ];
 
@@ -61,6 +97,11 @@ const TravelTipsPage = () => {
       content: "Check requirements early—most visitors need a visa. ECOWAS citizens enjoy visa-free entry, and the E-Visa process is simpler."
     }
   ];
+
+  const handleReadGuide = (tip: any) => {
+    setSelectedTip(tip);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="bg-bg min-h-screen relative isolate">
@@ -176,17 +217,31 @@ const TravelTipsPage = () => {
                 <h3 className="font-display text-2xl md:text-3xl text-text leading-[1.1] group-hover:text-accent transition-colors">
                   {tip.title}
                 </h3>
-                <p className="font-body text-sm text-muted leading-relaxed line-clamp-3">
+                <p className="font-body text-sm text-muted leading-relaxed">
                   {tip.content}
                 </p>
-                <Link href="#" className="inline-flex items-center gap-3 pt-4 group/btn">
+
+                {tip.highlights && (
+                  <ul className="space-y-2 pt-2">
+                    {tip.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-[11px] font-body text-text/80">
+                        <div className="w-1 h-1 bg-accent" />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <button 
+                  onClick={() => handleReadGuide(tip)}
+                  className="inline-flex items-center gap-3 pt-4 group/btn text-left"
+                >
                   <span className="font-body text-[10px] uppercase font-bold tracking-widest text-accent">
                     Read Guide
                   </span>
                   <div className="w-8 h-8 border border-accent/20 flex items-center justify-center group-hover/btn:bg-accent group-hover/btn:text-white transition-all duration-300">
                     <ArrowRight size={14} />
                   </div>
-                </Link>
+                </button>
               </div>
             </div>
           ))}
@@ -300,6 +355,12 @@ const TravelTipsPage = () => {
 
         </div>
       </div>
+
+      <GuideModal 
+        tip={selectedTip}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
