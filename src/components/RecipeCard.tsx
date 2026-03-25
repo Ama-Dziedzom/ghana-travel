@@ -33,7 +33,7 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         </h3>
         <div className="flex items-center space-x-3 text-muted">
           {recipe.difficulty && (
-            <span className="font-body text-[10px] uppercase tracking-widest bg-border/50 px-2 py-0.5 rounded-full">
+            <span className="font-body text-[10px] uppercase tracking-widest bg-border/50 px-2 py-0.5">
               {recipe.difficulty}
             </span>
           )}

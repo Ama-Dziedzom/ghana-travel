@@ -6,6 +6,7 @@ import CategoryFilter from "@/components/CategoryFilter";
 import type { Recipe } from "@/lib/supabase/types";
 import { MOCK_RESTAURANTS, MOCK_CAFES, GHANA_REGIONS, RegionTop10, Top10Item } from "@/data/taste";
 import Top10Card from "@/components/Top10Card";
+import MapModal from "@/components/MapModal";
 import { cn } from "@/lib/utils";
 
 const MAIN_TABS = ["Recipes", "Restaurants", "Cafes"];
@@ -24,6 +25,15 @@ export default function ClientTastePage({ recipes }: ClientTastePageProps) {
   // Top 10 specific state
   const [selectedRegion, setSelectedRegion] = useState(GHANA_REGIONS[0]);
   const [selectedOccasion, setSelectedOccasion] = useState("");
+  
+  // Modal state
+  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
+  const [mapSelectedItem, setMapSelectedItem] = useState<Top10Item | null>(null);
+
+  const handleItemClick = (item: Top10Item) => {
+    setMapSelectedItem(item);
+    setIsMapModalOpen(true);
+  };
 
   const filteredRecipes = recipes.filter((recipe) => {
     if (activeRecipeCategory === "All") return true;
@@ -74,7 +84,7 @@ export default function ClientTastePage({ recipes }: ClientTastePageProps) {
               key={tab}
               onClick={() => setActiveMainTab(tab)}
               className={cn(
-                "px-8 py-2 rounded-full border font-body text-[10px] uppercase font-bold tracking-widest transition-all duration-300",
+                "px-8 py-2 border font-body text-[10px] uppercase font-bold tracking-widest transition-all duration-300",
                 activeMainTab === tab 
                   ? "bg-text text-bg border-text shadow-sm" 
                   : "bg-transparent text-muted border-border hover:border-accent hover:text-accent"
@@ -154,13 +164,24 @@ export default function ClientTastePage({ recipes }: ClientTastePageProps) {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
                 {activeTop10Items.map((item, index) => (
-                  <Top10Card key={item.id} item={item} rank={index + 1} />
+                  <Top10Card 
+                    key={item.id} 
+                    item={item} 
+                    rank={index + 1} 
+                    onClick={handleItemClick}
+                  />
                 ))}
               </div>
             </div>
           </div>
         )}
       </div>
+
+      <MapModal 
+        isOpen={isMapModalOpen}
+        item={mapSelectedItem}
+        onClose={() => setIsMapModalOpen(false)}
+      />
     </div>
   );
 }

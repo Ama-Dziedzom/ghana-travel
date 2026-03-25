@@ -16,7 +16,7 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }: Catego
           key={category}
           onClick={() => onCategoryChange(category)}
           className={cn(
-            "px-6 py-2 rounded-full border font-body text-xs font-bold uppercase tracking-widest transition-all",
+            "px-6 py-2 border font-body text-xs font-bold uppercase tracking-widest transition-all",
             activeCategory === category
               ? "bg-text text-bg border-text"
               : "bg-transparent text-muted border-border hover:border-accent hover:text-accent"

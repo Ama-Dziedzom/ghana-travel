@@ -10,7 +10,7 @@ const ItineraryCard = ({ itinerary }: ItineraryCardProps) => {
   return (
     <Link 
       href={`/itineraries/${itinerary.slug}`}
-      className="group relative block aspect-[16/9] overflow-hidden rounded-sm bg-border"
+      className="group relative block aspect-[16/9] overflow-hidden bg-border"
     >
       {itinerary.cover_image && (
         <Image
@@ -30,13 +30,13 @@ const ItineraryCard = ({ itinerary }: ItineraryCardProps) => {
         {/* Pills */}
         <div className="flex flex-wrap gap-2">
           {itinerary.duration && (
-            <span className="bg-accent text-white font-body text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+            <span className="bg-accent text-white font-body text-[10px] font-bold uppercase tracking-widest px-3 py-1">
               {itinerary.duration} Days
             </span>
           )}
           <div className="flex gap-2">
             {(itinerary.vibe_tags ?? []).slice(0, 3).map((tag, i) => (
-              <span key={i} className="bg-white/10 backdrop-blur-md text-white border border-white/20 font-body text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">
+              <span key={i} className="bg-white/10 backdrop-blur-md text-white border border-white/20 font-body text-[10px] uppercase tracking-widest px-3 py-1">
                 {tag}
               </span>
             ))}
