@@ -25,7 +25,8 @@ const Nav = () => {
     pathname === "/" ||
     pathname.startsWith("/explore/") ||
     pathname.startsWith("/itineraries/") ||
-    pathname.startsWith("/taste/");
+    pathname.startsWith("/taste/") ||
+    pathname.startsWith("/travel-tips");
 
   // Use light text only if we're on a hero page AND we haven't scrolled down yet
   const useLightNav = isHeroPage && !isScrolled && !isOpen;

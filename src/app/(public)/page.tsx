@@ -30,7 +30,7 @@ export default async function Home() {
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <div className="max-w-4xl space-y-6">
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1]">
+            <h1 className="font-display text-4xl md:text-7xl lg:text-8xl text-white leading-[1.1] text-balance">
               Ghana. Come for the beaches. <br className="hidden md:block" /> Stay for everything else.
             </h1>
             <p className="font-body text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light tracking-wide">
@@ -74,27 +74,33 @@ export default async function Home() {
       </section>
 
       {/* Plan Your Trip CTA */}
-      <section className="py-20 px-6 lg:px-12 bg-text overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
-           <svg viewBox="0 0 100 100" className="w-full h-full fill-white">
-             <circle cx="50" cy="50" r="40" />
-           </svg>
-        </div>
+      <section className="relative py-32 px-6 lg:px-12 overflow-hidden group">
+        <Image
+          src="/images/prefooter_ghana.png"
+          alt="Serene Ghana Landscape"
+          fill
+          className="object-cover transition-transform duration-[20s] group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+        
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           <div className="max-w-2xl space-y-6 text-center md:text-left">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-bg leading-tight">
-              Ready to write your <br className="hidden md:block" /> own Ghana story?
+            <h2 className="font-display text-4xl md:text-7xl lg:text-8xl text-white leading-[1.1] text-balance">
+              Ready to write your own Ghana story?
             </h2>
-            <p className="font-body text-bg/60 text-lg">
+            <p className="font-body text-white/90 text-lg md:text-xl max-w-xl font-light tracking-wide">
               Our curated itineraries cover everything from weekend escapes in Accra to week-long loops across the country.
             </p>
           </div>
-          <Link
-            href="/itineraries"
-            className="px-10 py-5 bg-accent text-white font-body text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-text transition-all duration-300 transform hover:scale-105 active:scale-95 whitespace-nowrap"
-          >
-            Plan Your Trip
-          </Link>
+          <div className="flex-shrink-0">
+            <Link
+              href="/itineraries"
+              className="inline-block px-12 py-5 bg-accent text-white font-body text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-text transition-all duration-500 transform hover:-translate-y-1 shadow-2xl"
+            >
+              Plan Your Trip
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -120,7 +126,7 @@ export default async function Home() {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <span className="font-body text-[10px] uppercase font-bold tracking-[0.3em] text-accent">Taste of Ghana</span>
-                  <h2 className="font-display text-5xl md:text-6xl text-text leading-tight">
+                  <h2 className="font-display text-4xl md:text-6xl text-text leading-tight text-balance">
                     {featuredRecipe.title}
                   </h2>
                   <p className="font-body text-muted text-lg leading-relaxed max-w-lg">
