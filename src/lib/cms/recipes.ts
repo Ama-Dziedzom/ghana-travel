@@ -2,15 +2,19 @@ import { createClient } from '@supabase/supabase-js'
 import type { Recipe } from '@/lib/supabase/types'
 
 function publicClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  )
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return null
+  return createClient(url, key, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  })
 }
 
 export async function getRecipes(): Promise<Recipe[]> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) return getLocalRecipes()
+
+  const { data, error } = await client
     .from('recipes')
     .select('*')
     .eq('status', 'published')
@@ -21,7 +25,13 @@ export async function getRecipes(): Promise<Recipe[]> {
 }
 
 export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) {
+    const local = await getLocalRecipes()
+    return local.find((r) => r.slug === slug) ?? null
+  }
+
+  const { data, error } = await client
     .from('recipes')
     .select('*')
     .eq('slug', slug)

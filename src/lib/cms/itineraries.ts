@@ -2,15 +2,19 @@ import { createClient } from '@supabase/supabase-js'
 import type { Itinerary, ItineraryDay } from '@/lib/supabase/types'
 
 function publicClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  )
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return null
+  return createClient(url, key, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  })
 }
 
 export async function getItineraries(): Promise<Itinerary[]> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) return getLocalItineraries()
+
+  const { data, error } = await client
     .from('itineraries')
     .select('*')
     .eq('status', 'published')
@@ -23,7 +27,14 @@ export async function getItineraries(): Promise<Itinerary[]> {
 export async function getItineraryBySlug(
   slug: string
 ): Promise<(Itinerary & { days: ItineraryDay[] }) | null> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) {
+    const all = await getLocalItineraries()
+    const found = all.find((i) => i.slug === slug)
+    return found ? { ...found, days: (found as Itinerary & { days: ItineraryDay[] }).days ?? [] } : null
+  }
+
+  const { data, error } = await client
     .from('itineraries')
     .select('*, itinerary_days(*)')
     .eq('slug', slug)

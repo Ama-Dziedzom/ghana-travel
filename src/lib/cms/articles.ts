@@ -2,12 +2,14 @@ import { createClient } from '@supabase/supabase-js'
 import type { Article } from '@/lib/supabase/types'
 
 // Public read client — anon key + RLS. No session cookies needed for public reads.
+// Returns null when env vars are missing (e.g. during Vercel builds without Supabase configured).
 function publicClient() {
-  return createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  )
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return null
+  return createClient(url, key, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  })
 }
 
 type ArticleWithAuthor = Article & { _author_name: string | null }
@@ -20,7 +22,10 @@ function withAuthorName(data: (Article & { authors?: { name: string } | null })[
 }
 
 export async function getArticles(): Promise<ArticleWithAuthor[]> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) return getLocalArticles()
+
+  const { data, error } = await client
     .from('articles')
     .select('*, authors(name)')
     .eq('status', 'published')
@@ -31,7 +36,13 @@ export async function getArticles(): Promise<ArticleWithAuthor[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor | null> {
-  const { data, error } = await publicClient()
+  const client = publicClient()
+  if (!client) {
+    const local = await getLocalArticles()
+    return local.find((a) => a.slug === slug) ?? null
+  }
+
+  const { data, error } = await client
     .from('articles')
     .select('*, authors(name)')
     .eq('slug', slug)
