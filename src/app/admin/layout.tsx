@@ -3,6 +3,10 @@
 // able to render freely. Auth protection lives in (shell)/layout.tsx
 // which only wraps the authenticated dashboard pages.
 
+// Force all admin routes to render dynamically — they depend on Supabase
+// env vars / cookies that are unavailable during static build.
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Admin — Ghana Trails CMS',
   robots: { index: false, follow: false },
