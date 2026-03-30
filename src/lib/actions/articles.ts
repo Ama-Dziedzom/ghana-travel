@@ -17,10 +17,12 @@ function slugify(str: string) {
 // ── Get current user's author ID ──────────────────────────────────────────────
 async function getCurrentAuthorId(): Promise<string | null> {
   const supabase = await createClient()
+  if (!supabase) return null
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
   const admin = createAdminClient()
+  if (!admin) return null
   const { data } = await admin
     .from('authors')
     .select('id')
@@ -33,6 +35,7 @@ async function getCurrentAuthorId(): Promise<string | null> {
 // ── CREATE ────────────────────────────────────────────────────────────────────
 export async function createArticle(formData: FormData): Promise<{ error?: string } | void> {
   const supabase = createAdminClient()
+  if (!supabase) return { error: 'Supabase client not initialized' }
   const author_id = await getCurrentAuthorId()
 
   const title       = (formData.get('title') as string).trim()
@@ -68,6 +71,7 @@ export async function updateArticle(
   formData: FormData,
 ): Promise<{ error?: string } | void> {
   const supabase = createAdminClient()
+  if (!supabase) return { error: 'Supabase client not initialized' }
 
   const title       = (formData.get('title') as string).trim()
   const slug        = (formData.get('slug') as string).trim()
@@ -118,6 +122,7 @@ export async function updateArticle(
 // ── DELETE ────────────────────────────────────────────────────────────────────
 export async function deleteArticle(id: string): Promise<{ error?: string } | void> {
   const supabase = createAdminClient()
+  if (!supabase) return { error: 'Supabase client not initialized' }
 
   const { error } = await supabase.from('articles').delete().eq('id', id)
   if (error) return { error: error.message }

@@ -11,6 +11,8 @@ export default async function AdminShellLayout({
   children: React.ReactNode
 }) {
   const supabase = await createClient()
+  if (!supabase) throw new Error('Supabase client not initialized')
+
   const {
     data: { user },
   } = await supabase.auth.getUser()

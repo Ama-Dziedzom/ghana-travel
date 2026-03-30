@@ -19,6 +19,12 @@ export default function AdminLoginPage() {
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
+
+    if (!supabase) {
+      setError('Supabase is not configured. Please check your environment variables.')
+      return
+    }
+
     setLoading(true)
 
     const { error } = await supabase.auth.signInWithPassword({ email, password })

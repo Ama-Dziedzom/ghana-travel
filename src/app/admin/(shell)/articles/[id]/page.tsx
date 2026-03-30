@@ -13,6 +13,7 @@ interface EditArticlePageProps {
 
 export default async function EditArticlePage({ params }: EditArticlePageProps) {
   const supabase = createAdminClient()
+  if (!supabase) throw new Error('Supabase client not initialized')
 
   const { data: article } = await supabase
     .from('articles')

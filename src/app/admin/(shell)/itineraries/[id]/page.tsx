@@ -8,6 +8,7 @@ interface Props { params: { id: string } }
 
 export default async function EditItineraryPage({ params }: Props) {
   const supabase = createAdminClient()
+  if (!supabase) throw new Error('Supabase client not initialized')
 
   const { data: itinerary } = await supabase
     .from('itineraries')
