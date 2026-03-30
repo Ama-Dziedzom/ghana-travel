@@ -65,7 +65,7 @@ export async function getArticles(): Promise<ArticleWithAuthor[]> {
 
   // Fallback to Contentlayer
   console.log(`[getArticles] Falling back to local Contentlayer articles (${allArticles.length})`)
-  return allArticles.map(mapContentlayerArticle)
+  return allArticles.map((a: any) => mapContentlayerArticle(a))
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor | null> {
@@ -88,7 +88,7 @@ export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor 
   }
 
   // Fallback to local
-  const localDoc = allArticles.find((a) => a.slug === slug)
+  const localDoc = allArticles.find((a: any) => a.slug === slug)
   if (localDoc) {
     console.log(`[getArticleBySlug] Found "${slug}" in local Contentlayer articles`)
     return mapContentlayerArticle(localDoc)

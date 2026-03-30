@@ -55,7 +55,7 @@ export async function getRecipes(): Promise<Recipe[]> {
 
   // Fallback to local
   console.log(`[getRecipes] Falling back to local Contentlayer recipes (${allRecipes.length})`)
-  return allRecipes.map(mapContentlayerRecipe)
+  return allRecipes.map((r: any) => mapContentlayerRecipe(r))
 }
 
 export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
@@ -77,7 +77,7 @@ export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
   }
 
   // Fallback to local
-  const localDoc = allRecipes.find((r) => r.slug === slug)
+  const localDoc = allRecipes.find((r: any) => r.slug === slug)
   if (localDoc) {
     console.log(`[getRecipeBySlug] Found "${slug}" in local Contentlayer recipes`)
     return mapContentlayerRecipe(localDoc)

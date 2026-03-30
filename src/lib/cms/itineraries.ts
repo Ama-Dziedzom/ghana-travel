@@ -69,7 +69,7 @@ export async function getItineraries(): Promise<Itinerary[]> {
 
   // Fallback to local
   console.log(`[getItineraries] Falling back to local Contentlayer itineraries (${allItineraries.length})`)
-  return allItineraries.map(mapContentlayerItinerary)
+  return allItineraries.map((i: any) => mapContentlayerItinerary(i))
 }
 
 export async function getItineraryBySlug(
@@ -89,13 +89,13 @@ export async function getItineraryBySlug(
     } else if (dbData) {
       console.log(`[getItineraryBySlug] Fetched itinerary "${slug}" from Supabase`)
       const { itinerary_days, ...itinerary } = dbData as any
-      const sortedDays = (itinerary_days ?? []).sort((a, b) => a.day_number - b.day_number)
+      const sortedDays = (itinerary_days ?? []).sort((a: any, b: any) => a.day_number - b.day_number)
       return { ...itinerary, days: sortedDays } as any
     }
   }
 
   // Fallback to local
-  const localDoc = allItineraries.find((i) => i.slug === slug)
+  const localDoc = allItineraries.find((i: any) => i.slug === slug)
   if (localDoc) {
     console.log(`[getItineraryBySlug] Found "${slug}" in local Contentlayer itineraries`)
     return mapContentlayerItinerary(localDoc)
