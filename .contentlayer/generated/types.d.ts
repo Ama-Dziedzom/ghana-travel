@@ -14,9 +14,13 @@ export type Article = {
   _raw: Local.RawDocumentData
   type: 'Article'
   title: string
-  date: IsoDateTimeString
-  description?: string | undefined
-  image?: string | undefined
+  slug: string
+  category: string
+  excerpt?: string | undefined
+  coverImage?: string | undefined
+  author?: string | undefined
+  publishedAt?: string | undefined
+  readTime?: number | undefined
   /** MDX file body */
   body: MDX
   slug: string
@@ -28,9 +32,15 @@ export type Itinerary = {
   _raw: Local.RawDocumentData
   type: 'Itinerary'
   title: string
-  date: IsoDateTimeString
-  description?: string | undefined
-  image?: string | undefined
+  slug: string
+  duration?: number | undefined
+  regions?: string[] | undefined
+  vibeTags?: string[] | undefined
+  bestSeason?: string | undefined
+  coverImage?: string | undefined
+  summary?: string | undefined
+  mapEmbedUrl?: string | undefined
+  days?: any | undefined
   /** MDX file body */
   body: MDX
   slug: string
@@ -42,9 +52,17 @@ export type Recipe = {
   _raw: Local.RawDocumentData
   type: 'Recipe'
   title: string
-  date: IsoDateTimeString
+  slug: string
+  category: string
   description?: string | undefined
-  image?: string | undefined
+  coverImage?: string | undefined
+  prepTime?: number | undefined
+  cookTime?: number | undefined
+  servings?: number | undefined
+  difficulty?: string | undefined
+  ingredients?: string[] | undefined
+  instructions?: string[] | undefined
+  tips?: string | undefined
   /** MDX file body */
   body: MDX
   slug: string

@@ -1,1 +1,176 @@
-[]
+[
+  {
+    "title": "Creamy Groundnut Soup",
+    "slug": "groundnut-soup",
+    "category": "soups",
+    "description": "A rich, nutty, and spicy soup made from roasted peanuts, usually served with fufu or rice balls (omtuo).",
+    "coverImage": "/images/recipe_groundnut_soup.png",
+    "prepTime": 15,
+    "cookTime": 45,
+    "servings": 4,
+    "difficulty": "medium",
+    "ingredients": [
+      "1 cup natural peanut butter (no added sugar)",
+      "500g chicken or goat meat, cut into pieces",
+      "2 large tomatoes",
+      "1 large onion",
+      "Fresh ginger and garlic",
+      "2 Scotch bonnet peppers",
+      "1 tbsp tomato paste",
+      "Salt and bouillon cubes to taste"
+    ],
+    "instructions": [
+      "Season the meat with salt, blended ginger, garlic, and onions. Steam in a pot for 10-15 minutes.",
+      "In a separate pan, mix the peanut butter with a little water and the tomato paste. Stir over low heat until the oil begins to surface.",
+      "Add the peanut mixture to the steaming meat.",
+      "Add whole tomatoes, onion, and peppers to the pot. Once they are soft, remove them, blend, and strain back into the soup.",
+      "Add enough water to reach your desired consistency and simmer for 25-30 minutes until the oil rises to the top."
+    ],
+    "tips": "The oil rising to the top is the sign that the soup is ready. Serve with fufu for the most authentic experience, but it's also delicious with plain steamed rice.",
+    "body": {
+      "raw": "\nGroundnut soup is the ultimate comfort food. It's savory, slightly sweet from the peanuts, and has just enough kick to warm you up.\n",
+      "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},r=(t,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of l(e))!f.call(t,n)&&n!==o&&i(t,n,{get:()=>e[n],enumerable:!(a=h(e,n))||a.enumerable});return t};var w=(t,e,o)=>(o=t!=null?m(g(t)):{},r(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),x=t=>r(i({},\"__esModule\",{value:!0}),t);var p=y((k,u)=>{u.exports=_jsx_runtime});var S={};b(S,{default:()=>d,frontmatter:()=>v});var s=w(p()),v={title:\"Creamy Groundnut Soup\",slug:\"groundnut-soup\",category:\"soups\",description:\"A rich, nutty, and spicy soup made from roasted peanuts, usually served with fufu or rice balls (omtuo).\",coverImage:\"/images/recipe_groundnut_soup.png\",prepTime:15,cookTime:45,servings:4,difficulty:\"medium\",ingredients:[\"1 cup natural peanut butter (no added sugar)\",\"500g chicken or goat meat, cut into pieces\",\"2 large tomatoes\",\"1 large onion\",\"Fresh ginger and garlic\",\"2 Scotch bonnet peppers\",\"1 tbsp tomato paste\",\"Salt and bouillon cubes to taste\"],instructions:[\"Season the meat with salt, blended ginger, garlic, and onions. Steam in a pot for 10-15 minutes.\",\"In a separate pan, mix the peanut butter with a little water and the tomato paste. Stir over low heat until the oil begins to surface.\",\"Add the peanut mixture to the steaming meat.\",\"Add whole tomatoes, onion, and peppers to the pot. Once they are soft, remove them, blend, and strain back into the soup.\",\"Add enough water to reach your desired consistency and simmer for 25-30 minutes until the oil rises to the top.\"],tips:\"The oil rising to the top is the sign that the soup is ready. Serve with fufu for the most authentic experience, but it's also delicious with plain steamed rice.\"};function c(t){let e={p:\"p\",...t.components};return(0,s.jsx)(e.p,{children:\"Groundnut soup is the ultimate comfort food. It's savory, slightly sweet from the peanuts, and has just enough kick to warm you up.\"})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(c,{...t})}):c(t)}return x(S);})();\n;return Component;"
+    },
+    "_id": "recipes/groundnut-soup.mdx",
+    "_raw": {
+      "sourceFilePath": "recipes/groundnut-soup.mdx",
+      "sourceFileName": "groundnut-soup.mdx",
+      "sourceFileDir": "recipes",
+      "contentType": "mdx",
+      "flattenedPath": "recipes/groundnut-soup"
+    },
+    "type": "Recipe"
+  },
+  {
+    "title": "Ghanaian Jollof Rice",
+    "slug": "ghanaian-jollof-rice",
+    "category": "rice-dishes",
+    "description": "The smoky, spicy, and deeply flavorful rice dish at the center of the famous Jollof wars.",
+    "coverImage": "/images/recipe_jollof.png",
+    "prepTime": 20,
+    "cookTime": 50,
+    "servings": 6,
+    "difficulty": "medium",
+    "ingredients": [
+      "3 cups long-grain perfumed rice (Jasmine)",
+      "5 large tomatoes",
+      "2 large red onions",
+      "1 head of garlic",
+      "Fresh ginger (thumb-sized)",
+      "2 Scotch bonnet peppers (adjust for heat)",
+      "1/2 cup tomato paste",
+      "1 cup vegetable oil",
+      "2 cups chicken or vegetable stock",
+      "1 tsp curry powder",
+      "1 tsp thyme",
+      "Bay leaves",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Blend tomatoes, one onion, garlic, ginger, and scotch bonnets into a smooth puree.",
+      "Heat oil in a large pot and sauté the remaining sliced onion until translucent.",
+      "Add tomato paste and fry for about 5-8 minutes until it darkens slightly and loses its sourness.",
+      "Pour in the blended puree and cook down until the oil starts to separate from the sauce (the 'stew' base).",
+      "Season with curry, thyme, bay leaves, and salt.",
+      "Wash the rice thoroughly to remove excess starch, then add it to the pot, stirring well to coat with the stew.",
+      "Add the stock. The liquid should just cover the rice. Cover tightly with foil and a lid.",
+      "Cook on very low heat for 30-40 mins, gently turning the rice every 10 mins until fluffy and cooked through."
+    ],
+    "tips": "The secret to great Jollof is 'the smoke'. Don't be afraid if the bottom burns slightly—that's where the flavor lives. For international cooks, use a heavy-bottomed pot to ensure even heat distribution.",
+    "body": {
+      "raw": "\nJollof is more than just a meal in Ghana; it's an institution. Whether it's a wedding, a funeral, or a Friday night out, Jollof is the guest of honor.\n",
+      "code": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),v=(e,t)=>{for(var o in t)i(e,o,{get:t[o],enumerable:!0})},r=(e,t,o,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let n of f(t))!p.call(e,n)&&n!==o&&i(e,n,{get:()=>t[n],enumerable:!(s=m(t,n))||s.enumerable});return e};var b=(e,t,o)=>(o=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?i(o,\"default\",{value:e,enumerable:!0}):o,e)),w=e=>r(i({},\"__esModule\",{value:!0}),e);var h=y((J,l)=>{l.exports=_jsx_runtime});var j={};v(j,{default:()=>u,frontmatter:()=>k});var a=b(h()),k={title:\"Ghanaian Jollof Rice\",slug:\"ghanaian-jollof-rice\",category:\"rice-dishes\",description:\"The smoky, spicy, and deeply flavorful rice dish at the center of the famous Jollof wars.\",coverImage:\"/images/recipe_jollof.png\",prepTime:20,cookTime:50,servings:6,difficulty:\"medium\",ingredients:[\"3 cups long-grain perfumed rice (Jasmine)\",\"5 large tomatoes\",\"2 large red onions\",\"1 head of garlic\",\"Fresh ginger (thumb-sized)\",\"2 Scotch bonnet peppers (adjust for heat)\",\"1/2 cup tomato paste\",\"1 cup vegetable oil\",\"2 cups chicken or vegetable stock\",\"1 tsp curry powder\",\"1 tsp thyme\",\"Bay leaves\",\"Salt to taste\"],instructions:[\"Blend tomatoes, one onion, garlic, ginger, and scotch bonnets into a smooth puree.\",\"Heat oil in a large pot and saut\\xE9 the remaining sliced onion until translucent.\",\"Add tomato paste and fry for about 5-8 minutes until it darkens slightly and loses its sourness.\",\"Pour in the blended puree and cook down until the oil starts to separate from the sauce (the 'stew' base).\",\"Season with curry, thyme, bay leaves, and salt.\",\"Wash the rice thoroughly to remove excess starch, then add it to the pot, stirring well to coat with the stew.\",\"Add the stock. The liquid should just cover the rice. Cover tightly with foil and a lid.\",\"Cook on very low heat for 30-40 mins, gently turning the rice every 10 mins until fluffy and cooked through.\"],tips:\"The secret to great Jollof is 'the smoke'. Don't be afraid if the bottom burns slightly\\u2014that's where the flavor lives. For international cooks, use a heavy-bottomed pot to ensure even heat distribution.\"};function c(e){let t={p:\"p\",...e.components};return(0,a.jsx)(t.p,{children:\"Jollof is more than just a meal in Ghana; it's an institution. Whether it's a wedding, a funeral, or a Friday night out, Jollof is the guest of honor.\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(c,{...e})}):c(e)}return w(j);})();\n;return Component;"
+    },
+    "_id": "recipes/jollof-rice.mdx",
+    "_raw": {
+      "sourceFilePath": "recipes/jollof-rice.mdx",
+      "sourceFileName": "jollof-rice.mdx",
+      "sourceFileDir": "recipes",
+      "contentType": "mdx",
+      "flattenedPath": "recipes/jollof-rice"
+    },
+    "type": "Recipe"
+  },
+  {
+    "title": "Kelewele (Spiced Fried Plantains)",
+    "slug": "kelewele-spiced-plantains",
+    "category": "street-food",
+    "description": "The ultimate Ghanaian street snack—sweet ripe plantains marinated in ginger and spices, then fried to perfection.",
+    "coverImage": "/images/recipe_kelewele.png",
+    "prepTime": 15,
+    "cookTime": 10,
+    "servings": 4,
+    "difficulty": "easy",
+    "ingredients": [
+      "4 very ripe plantains (yellow with black spots)",
+      "2 tbsp fresh ginger, grated",
+      "1 small onion, finely minced",
+      "1 tsp chili powder or cayenne",
+      "1/2 tsp ground cloves",
+      "1/2 tsp salt",
+      "Vegetable oil for deep frying"
+    ],
+    "instructions": [
+      "Peel the plantains and cut them into small cubes or diagonal slices.",
+      "In a bowl, mix the ginger, onion, chili powder, cloves, and salt into a paste.",
+      "Toss the plantain cubes in the spice paste until evenly coated. Let it marinate for at least 15 minutes.",
+      "Heat oil in a deep pan. Fry the plantains in batches until they are golden brown and slightly caramelized at the edges.",
+      "Drain on paper towels and serve hot."
+    ],
+    "tips": "Serve with roasted peanuts for the authentic roadside experience. If you can't find very ripe plantains, wait until they are almost black—that's when they are sweetest!",
+    "body": {
+      "raw": "\nYou'll find Kelewele vendors on almost every corner in Accra as soon as the sun goes down. The smell of frying ginger is the signal that the night has begun.\n",
+      "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),w=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},r=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of u(t))!f.call(e,i)&&i!==n&&a(e,i,{get:()=>t[i],enumerable:!(o=g(t,i))||o.enumerable});return e};var v=(e,t,n)=>(n=e!=null?h(m(e)):{},r(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),b=e=>r(a({},\"__esModule\",{value:!0}),e);var c=y((T,l)=>{l.exports=_jsx_runtime});var k={};w(k,{default:()=>d,frontmatter:()=>x});var s=v(c()),x={title:\"Kelewele (Spiced Fried Plantains)\",slug:\"kelewele-spiced-plantains\",category:\"street-food\",description:\"The ultimate Ghanaian street snack\\u2014sweet ripe plantains marinated in ginger and spices, then fried to perfection.\",coverImage:\"/images/recipe_kelewele.png\",prepTime:15,cookTime:10,servings:4,difficulty:\"easy\",ingredients:[\"4 very ripe plantains (yellow with black spots)\",\"2 tbsp fresh ginger, grated\",\"1 small onion, finely minced\",\"1 tsp chili powder or cayenne\",\"1/2 tsp ground cloves\",\"1/2 tsp salt\",\"Vegetable oil for deep frying\"],instructions:[\"Peel the plantains and cut them into small cubes or diagonal slices.\",\"In a bowl, mix the ginger, onion, chili powder, cloves, and salt into a paste.\",\"Toss the plantain cubes in the spice paste until evenly coated. Let it marinate for at least 15 minutes.\",\"Heat oil in a deep pan. Fry the plantains in batches until they are golden brown and slightly caramelized at the edges.\",\"Drain on paper towels and serve hot.\"],tips:\"Serve with roasted peanuts for the authentic roadside experience. If you can't find very ripe plantains, wait until they are almost black\\u2014that's when they are sweetest!\"};function p(e){let t={p:\"p\",...e.components};return(0,s.jsx)(t.p,{children:\"You'll find Kelewele vendors on almost every corner in Accra as soon as the sun goes down. The smell of frying ginger is the signal that the night has begun.\"})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(p,{...e})}):p(e)}return b(k);})();\n;return Component;"
+    },
+    "_id": "recipes/kelewele.mdx",
+    "_raw": {
+      "sourceFilePath": "recipes/kelewele.mdx",
+      "sourceFileName": "kelewele.mdx",
+      "sourceFileDir": "recipes",
+      "contentType": "mdx",
+      "flattenedPath": "recipes/kelewele"
+    },
+    "type": "Recipe"
+  },
+  {
+    "title": "Classic Waakye",
+    "slug": "classic-waakye",
+    "category": "rice-dishes",
+    "description": "A nutritious breakfast staple of rice and beans cooked with dried sorghum leaves for a unique reddish-purple hue.",
+    "coverImage": "/images/recipe_waakye.png",
+    "prepTime": 20,
+    "cookTime": 60,
+    "servings": 6,
+    "difficulty": "medium",
+    "ingredients": [
+      "2 cups black-eyed peas (soaked overnight)",
+      "3 cups long-grain rice",
+      "4-6 dried sorghum leaves (waakye leaves)",
+      "1/2 tsp baking soda (optional, for color and softening)",
+      "Salt to taste",
+      "Water"
+    ],
+    "instructions": [
+      "Boil the soaked beans with the sorghum leaves in a large pot until the beans are half-cooked and the water has turned deep wine-red.",
+      "Remove the leaves (or leave them in for more color).",
+      "Add the washed rice to the pot with the beans. Add more water if necessary; it should be about an inch above the rice.",
+      "Add salt and baking soda if using.",
+      "Cover tightly and simmer on low heat until the rice and beans are tender and the water is fully absorbed.",
+      "Fluff with a fork and serve with traditional accompaniments."
+    ],
+    "tips": "Waakye is incomplete without Shito (black pepper sauce), wele (cowhide) stew, and spaghetti (talalia). If you can't find sorghum leaves, you can omit them, though the color will be different.",
+    "body": {
+      "raw": "\nWaakye is the breakfast of champions in Ghana. It's traditionally served in a broad leaf (Katemanth), which adds its own subtle earthy aroma to the dish.\n",
+      "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),b=(e,t)=>{for(var a in t)o(e,a,{get:t[a],enumerable:!0})},r=(e,t,a,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of p(t))!g.call(e,i)&&i!==a&&o(e,i,{get:()=>t[i],enumerable:!(s=m(t,i))||s.enumerable});return e};var k=(e,t,a)=>(a=e!=null?u(f(e)):{},r(t||!e||!e.__esModule?o(a,\"default\",{value:e,enumerable:!0}):a,e)),y=e=>r(o({},\"__esModule\",{value:!0}),e);var h=w((A,d)=>{d.exports=_jsx_runtime});var x={};b(x,{default:()=>c,frontmatter:()=>v});var n=k(h()),v={title:\"Classic Waakye\",slug:\"classic-waakye\",category:\"rice-dishes\",description:\"A nutritious breakfast staple of rice and beans cooked with dried sorghum leaves for a unique reddish-purple hue.\",coverImage:\"/images/recipe_waakye.png\",prepTime:20,cookTime:60,servings:6,difficulty:\"medium\",ingredients:[\"2 cups black-eyed peas (soaked overnight)\",\"3 cups long-grain rice\",\"4-6 dried sorghum leaves (waakye leaves)\",\"1/2 tsp baking soda (optional, for color and softening)\",\"Salt to taste\",\"Water\"],instructions:[\"Boil the soaked beans with the sorghum leaves in a large pot until the beans are half-cooked and the water has turned deep wine-red.\",\"Remove the leaves (or leave them in for more color).\",\"Add the washed rice to the pot with the beans. Add more water if necessary; it should be about an inch above the rice.\",\"Add salt and baking soda if using.\",\"Cover tightly and simmer on low heat until the rice and beans are tender and the water is fully absorbed.\",\"Fluff with a fork and serve with traditional accompaniments.\"],tips:\"Waakye is incomplete without Shito (black pepper sauce), wele (cowhide) stew, and spaghetti (talalia). If you can't find sorghum leaves, you can omit them, though the color will be different.\"};function l(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Waakye is the breakfast of champions in Ghana. It's traditionally served in a broad leaf (Katemanth), which adds its own subtle earthy aroma to the dish.\"})}function c(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return y(x);})();\n;return Component;"
+    },
+    "_id": "recipes/waakye.mdx",
+    "_raw": {
+      "sourceFilePath": "recipes/waakye.mdx",
+      "sourceFileName": "waakye.mdx",
+      "sourceFileDir": "recipes",
+      "contentType": "mdx",
+      "flattenedPath": "recipes/waakye"
+    },
+    "type": "Recipe"
+  }
+]

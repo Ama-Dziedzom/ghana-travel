@@ -1,1 +1,139 @@
-[]
+[
+  {
+    "title": "3 Days in Accra: The Heart of Ghana",
+    "slug": "3-days-in-accra",
+    "duration": 3,
+    "regions": [
+      "Greater Accra"
+    ],
+    "vibeTags": [
+      "City Culture",
+      "Art",
+      "Food"
+    ],
+    "bestSeason": "Year-round",
+    "coverImage": "/images/itinerary_accra.png",
+    "summary": "Immerse yourself in the bustling energy of West Africa's most vibrant coastal capital.",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.25704179339!2d-0.2662095907409441!3d5.590984852033604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed1c48c4ae4d817!2sAccra!5e0!3m2!1sen!2sgh!4v1710685000000!5m2!1sen!2sgh",
+    "days": [
+      {
+        "day": 1,
+        "title": "Old Accra & Street Art",
+        "morning": "Explore the historic Jamestown district. Climb the lighthouse for panoramic views and walk through the streets filled with murals.",
+        "afternoon": "Visit the Kwame Nkrumah Memorial Park and the nearby Arts Center for some souvenir hunting.",
+        "evening": "Head to Osu for dinner on Cantonments Road (Oxford Street).",
+        "eat": "Try the street food at Jamestown or dine at Chez Clarisse in Osu.",
+        "stay": "Osu or Cantonments"
+      },
+      {
+        "day": 2,
+        "title": "Culture & Commerce",
+        "morning": "Navigate the organized chaos of Makola Market. It's an sensory experience like no other.",
+        "afternoon": "Visit the National Museum of Ghana to see artifacts from across the country's history.",
+        "evening": "Enjoy live music at +233 Jazz Bar & Grill.",
+        "eat": "Buka Restaurant for authentic West African dishes.",
+        "stay": "Osu or Cantonments"
+      },
+      {
+        "day": 3,
+        "title": "Beaches & Nightlife",
+        "morning": "Relax at Labadi Beach or the more terminal Bojo Beach.",
+        "afternoon": "Check out the contemporary art galleries like Gallery 1957 or Nubuke Foundation.",
+        "evening": "Wrap up your trip with cocktails at Skybar 25 for a view of the city skyline.",
+        "eat": "Santoku for high-end fusion or Labadi beach grills for fresh fish.",
+        "stay": "Osu or Cantonments"
+      }
+    ],
+    "body": {
+      "raw": "\nAccra is a city that never really sleeps. It's loud, colorful, and incredibly welcoming. In three days, you'll only scratch the surface, but you'll definitely feel the rhythm of the city.\n",
+      "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),b=(e,t)=>{for(var a in t)o(e,a,{get:t[a],enumerable:!0})},i=(e,t,a,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of d(t))!g.call(e,r)&&r!==a&&o(e,r,{get:()=>t[r],enumerable:!(s=f(t,r))||s.enumerable});return e};var C=(e,t,a)=>(a=e!=null?u(y(e)):{},i(t||!e||!e.__esModule?o(a,\"default\",{value:e,enumerable:!0}):a,e)),k=e=>i(o({},\"__esModule\",{value:!0}),e);var l=p((A,c)=>{c.exports=_jsx_runtime});var w={};b(w,{default:()=>m,frontmatter:()=>v});var n=C(l()),v={title:\"3 Days in Accra: The Heart of Ghana\",slug:\"3-days-in-accra\",duration:3,regions:[\"Greater Accra\"],vibeTags:[\"City Culture\",\"Art\",\"Food\"],bestSeason:\"Year-round\",coverImage:\"/images/itinerary_accra.png\",summary:\"Immerse yourself in the bustling energy of West Africa's most vibrant coastal capital.\",mapEmbedUrl:\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.25704179339!2d-0.2662095907409441!3d5.590984852033604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed1c48c4ae4d817!2sAccra!5e0!3m2!1sen!2sgh!4v1710685000000!5m2!1sen!2sgh\",days:[{day:1,title:\"Old Accra & Street Art\",morning:\"Explore the historic Jamestown district. Climb the lighthouse for panoramic views and walk through the streets filled with murals.\",afternoon:\"Visit the Kwame Nkrumah Memorial Park and the nearby Arts Center for some souvenir hunting.\",evening:\"Head to Osu for dinner on Cantonments Road (Oxford Street).\",eat:\"Try the street food at Jamestown or dine at Chez Clarisse in Osu.\",stay:\"Osu or Cantonments\"},{day:2,title:\"Culture & Commerce\",morning:\"Navigate the organized chaos of Makola Market. It's an sensory experience like no other.\",afternoon:\"Visit the National Museum of Ghana to see artifacts from across the country's history.\",evening:\"Enjoy live music at +233 Jazz Bar & Grill.\",eat:\"Buka Restaurant for authentic West African dishes.\",stay:\"Osu or Cantonments\"},{day:3,title:\"Beaches & Nightlife\",morning:\"Relax at Labadi Beach or the more terminal Bojo Beach.\",afternoon:\"Check out the contemporary art galleries like Gallery 1957 or Nubuke Foundation.\",evening:\"Wrap up your trip with cocktails at Skybar 25 for a view of the city skyline.\",eat:\"Santoku for high-end fusion or Labadi beach grills for fresh fish.\",stay:\"Osu or Cantonments\"}]};function h(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Accra is a city that never really sleeps. It's loud, colorful, and incredibly welcoming. In three days, you'll only scratch the surface, but you'll definitely feel the rhythm of the city.\"})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(h,{...e})}):h(e)}return k(w);})();\n;return Component;"
+    },
+    "_id": "itineraries/3-days-in-accra.mdx",
+    "_raw": {
+      "sourceFilePath": "itineraries/3-days-in-accra.mdx",
+      "sourceFileName": "3-days-in-accra.mdx",
+      "sourceFileDir": "itineraries",
+      "contentType": "mdx",
+      "flattenedPath": "itineraries/3-days-in-accra"
+    },
+    "type": "Itinerary"
+  },
+  {
+    "title": "5 Days: Accra to Cape Coast Loop",
+    "slug": "accra-to-cape-coast",
+    "duration": 5,
+    "regions": [
+      "Greater Accra",
+      "Central Region"
+    ],
+    "vibeTags": [
+      "History",
+      "Beaches",
+      "Nature"
+    ],
+    "bestSeason": "Dry season (Nov - March)",
+    "coverImage": "/images/itinerary_cape_coast.png",
+    "summary": "A journey through Ghana's coastal history and lush tropical rainforests.",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508499.78231945115!2d-1.74558231015625!3d5.3168869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdff063f6a6ca7f%3A0x7d6c6e76d97a660a!2sCentral%20Region!5e0!3m2!1sen!2sgh!4v1710685500000!5m2!1sen!2sgh",
+    "days": [
+      {
+        "day": 1,
+        "title": "Departure from Accra",
+        "morning": "Drive west from Accra towards Cape Coast. Stop at Kokrobite for a quick beach break.",
+        "afternoon": "Arrive in Cape Coast and check into your beachfront guesthouse.",
+        "evening": "Sunset walk along the shore near the castle.",
+        "eat": "Fresh grilled tilapia at your guesthouse.",
+        "stay": "Cape Coast Beachfront"
+      },
+      {
+        "day": 2,
+        "title": "The Castles of History",
+        "morning": "Guided tour of Cape Coast Castle. Prepare for an emotional journey through the dungeons.",
+        "afternoon": "Short drive to Elmina. Visit Elmina Castle (St. George's Castle) and watch the fishing boats return.",
+        "evening": "Relax at a local bar in Elmina town.",
+        "eat": "Try Fante Kenkey and fish in Elmina.",
+        "stay": "Cape Coast or Elmina"
+      },
+      {
+        "day": 3,
+        "title": "Treetops and Traditions",
+        "morning": "Early start at Kakum National Park. Braving the Canopy Walkway 40 meters above the forest floor.",
+        "afternoon": "Visit the Hans Cottage Botel to see crocodiles or take a traditional cooking class.",
+        "evening": "Drums and dancing at a local cultural center.",
+        "eat": "Groundnut soup at a local 'chop bar'.",
+        "stay": "Cape Coast"
+      },
+      {
+        "day": 4,
+        "title": "Anomabo Beach Days",
+        "morning": "Head to Anomabo beach for some serious relaxation on white sands.",
+        "afternoon": "Visit the Fort William or explore the historic Anomabo township.",
+        "evening": "Bonfire on the beach.",
+        "eat": "Seafood platter at Anomabo Beach Resort.",
+        "stay": "Anomabo"
+      },
+      {
+        "day": 5,
+        "title": "Return to the Capital",
+        "morning": "Slow morning at the beach. Late breakfast.",
+        "afternoon": "Scenic drive back to Accra, stopping at roadside fruit stands for fresh mangoes and pineapples.",
+        "evening": "Farewell dinner in Accra.",
+        "eat": "Roadside 'FanMilk' for the journey back.",
+        "stay": "Accra"
+      }
+    ],
+    "body": {
+      "raw": "\nThe Central Region offers a perfect blend of solemn history and tropical beauty. This route is essential for any first-time visitor to Ghana.\n",
+      "code": "var Component=(()=>{var d=Object.create;var n=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),b=(a,e)=>{for(var t in e)n(a,t,{get:e[t],enumerable:!0})},i=(a,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!g.call(a,o)&&o!==t&&n(a,o,{get:()=>e[o],enumerable:!(s=f(e,o))||s.enumerable});return a};var C=(a,e,t)=>(t=a!=null?d(p(a)):{},i(e||!a||!a.__esModule?n(t,\"default\",{value:a,enumerable:!0}):t,a)),v=a=>i(n({},\"__esModule\",{value:!0}),a);var l=y((x,c)=>{c.exports=_jsx_runtime});var A={};b(A,{default:()=>m,frontmatter:()=>k});var r=C(l()),k={title:\"5 Days: Accra to Cape Coast Loop\",slug:\"accra-to-cape-coast\",duration:5,regions:[\"Greater Accra\",\"Central Region\"],vibeTags:[\"History\",\"Beaches\",\"Nature\"],bestSeason:\"Dry season (Nov - March)\",coverImage:\"/images/itinerary_cape_coast.png\",summary:\"A journey through Ghana's coastal history and lush tropical rainforests.\",mapEmbedUrl:\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508499.78231945115!2d-1.74558231015625!3d5.3168869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdff063f6a6ca7f%3A0x7d6c6e76d97a660a!2sCentral%20Region!5e0!3m2!1sen!2sgh!4v1710685500000!5m2!1sen!2sgh\",days:[{day:1,title:\"Departure from Accra\",morning:\"Drive west from Accra towards Cape Coast. Stop at Kokrobite for a quick beach break.\",afternoon:\"Arrive in Cape Coast and check into your beachfront guesthouse.\",evening:\"Sunset walk along the shore near the castle.\",eat:\"Fresh grilled tilapia at your guesthouse.\",stay:\"Cape Coast Beachfront\"},{day:2,title:\"The Castles of History\",morning:\"Guided tour of Cape Coast Castle. Prepare for an emotional journey through the dungeons.\",afternoon:\"Short drive to Elmina. Visit Elmina Castle (St. George's Castle) and watch the fishing boats return.\",evening:\"Relax at a local bar in Elmina town.\",eat:\"Try Fante Kenkey and fish in Elmina.\",stay:\"Cape Coast or Elmina\"},{day:3,title:\"Treetops and Traditions\",morning:\"Early start at Kakum National Park. Braving the Canopy Walkway 40 meters above the forest floor.\",afternoon:\"Visit the Hans Cottage Botel to see crocodiles or take a traditional cooking class.\",evening:\"Drums and dancing at a local cultural center.\",eat:\"Groundnut soup at a local 'chop bar'.\",stay:\"Cape Coast\"},{day:4,title:\"Anomabo Beach Days\",morning:\"Head to Anomabo beach for some serious relaxation on white sands.\",afternoon:\"Visit the Fort William or explore the historic Anomabo township.\",evening:\"Bonfire on the beach.\",eat:\"Seafood platter at Anomabo Beach Resort.\",stay:\"Anomabo\"},{day:5,title:\"Return to the Capital\",morning:\"Slow morning at the beach. Late breakfast.\",afternoon:\"Scenic drive back to Accra, stopping at roadside fruit stands for fresh mangoes and pineapples.\",evening:\"Farewell dinner in Accra.\",eat:\"Roadside 'FanMilk' for the journey back.\",stay:\"Accra\"}]};function h(a){let e={p:\"p\",...a.components};return(0,r.jsx)(e.p,{children:\"The Central Region offers a perfect blend of solemn history and tropical beauty. This route is essential for any first-time visitor to Ghana.\"})}function m(a={}){let{wrapper:e}=a.components||{};return e?(0,r.jsx)(e,{...a,children:(0,r.jsx)(h,{...a})}):h(a)}return v(A);})();\n;return Component;"
+    },
+    "_id": "itineraries/accra-to-cape-coast.mdx",
+    "_raw": {
+      "sourceFilePath": "itineraries/accra-to-cape-coast.mdx",
+      "sourceFileName": "accra-to-cape-coast.mdx",
+      "sourceFileDir": "itineraries",
+      "contentType": "mdx",
+      "flattenedPath": "itineraries/accra-to-cape-coast"
+    },
+    "type": "Itinerary"
+  }
+]

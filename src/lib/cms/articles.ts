@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import type { Article } from '@/lib/supabase/types'
+import { readFileSync, existsSync } from 'fs'
+import { join } from 'path'
 
 // Public read client — anon key + RLS. No session cookies needed for public reads.
 // Returns null when env vars are missing (e.g. during Vercel builds without Supabase configured).
@@ -27,46 +29,67 @@ function withAuthorName(data: (Article & { authors?: { name: string } | null })[
 
 export async function getArticles(): Promise<ArticleWithAuthor[]> {
   const client = publicClient()
-  if (!client) return []
+  if (client) {
+    const { data, error } = await client
+      .from('articles')
+      .select('*, authors(name)')
+      .eq('status', 'published')
+      .order('published_at', { ascending: false })
 
-  const { data, error } = await client
-    .from('articles')
-    .select('*, authors(name)')
-    .eq('status', 'published')
-    .order('published_at', { ascending: false })
-
-  if (error || !data) {
-    console.error('[getArticles] Supabase error:', error)
-    return []
+    if (data && !error && data.length > 0) {
+      return withAuthorName(data as (Article & { authors?: { name: string } | null })[])
+    }
   }
-  return withAuthorName(data as (Article & { authors?: { name: string } | null })[])
+
+  // Fallback to Contentlayer data
+  return getLocalArticles()
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor | null> {
   const client = publicClient()
-  if (!client) {
-    console.error('[getArticleBySlug] No Supabase client — env vars missing')
-    return null
+  if (client) {
+    const { data, error } = await client
+      .from('articles')
+      .select('*, authors(name)')
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .maybeSingle()
+
+    if (data && !error) {
+      const { authors, ...article } = data as Article & { authors?: { name: string } | null }
+      return { ...article, _author_name: authors?.name ?? null }
+    }
   }
 
-  const { data, error } = await client
-    .from('articles')
-    .select('*, authors(name)')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .maybeSingle()
-
-  if (error) {
-    console.error('[getArticleBySlug] Supabase error for slug:', slug, error)
-    return null
-  }
-
-  if (!data) {
-    console.error('[getArticleBySlug] No article found for slug:', slug)
-    return null
-  }
-
-  const { authors, ...article } = data as Article & { authors?: { name: string } | null }
-  return { ...article, _author_name: authors?.name ?? null }
+  // Fallback to local
+  const local = await getLocalArticles()
+  return local.find((a) => a.slug === slug) ?? null
 }
 
+async function getLocalArticles(): Promise<ArticleWithAuthor[]> {
+  const indexPath = join(process.cwd(), '.contentlayer/generated/Article/_index.json')
+  if (!existsSync(indexPath)) return []
+
+  try {
+    const articles = JSON.parse(readFileSync(indexPath, 'utf8'))
+    return articles.map((a: any) => ({
+      id: a.slug,
+      title: a.title,
+      slug: a.slug,
+      category: a.category,
+      excerpt: a.excerpt || null,
+      cover_image: a.coverImage || null,
+      author_id: null,
+      published_at: a.publishedAt || null,
+      read_time: a.readTime || null,
+      body_mdx: a.body.raw,
+      status: 'published' as const,
+      created_at: a.publishedAt || new Date().toISOString(),
+      updated_at: a.publishedAt || new Date().toISOString(),
+      _author_name: a.author || null,
+    }))
+  } catch (err) {
+    console.error('Error reading local articles:', err)
+    return []
+  }
+}

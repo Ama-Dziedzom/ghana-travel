@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "title": "The Art of Kente: More Than Just a Fabric",
+    "slug": "the-art-of-kente",
+    "category": "culture",
+    "excerpt": "Discover the deep symbolism and history woven into every thread of Ghana's most iconic textile.",
+    "coverImage": "/images/article_kente.png",
+    "author": "Ama Serwaa",
+    "publishedAt": "2024-03-15",
+    "readTime": 6,
+    "body": {
+      "raw": "\nKente is not just a cloth; it's a visual representation of history, philosophy, and oral tradition. Originating from the Ashanti Kingdom, this hand-woven fabric was once reserved for royalty.\n\n### The Meaning in the Colors\nEach color in a Kente cloth carries a specific meaning:\n- **Gold:** Royalty, wealth, and spiritual purity.\n- **Blue:** Peace, harmony, and love.\n- **Green:** Harvest, planting, and spiritual renewal.\n\nWhen you walk through the streets of Kumasi, you'll see the loom workers meticulously throwing the shuttle back and forth, a craft passed down through generations.\n",
+      "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var r in e)i(n,r,{get:e[r],enumerable:!0})},s=(n,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!f.call(n,o)&&o!==r&&i(n,o,{get:()=>e[o],enumerable:!(a=m(e,o))||a.enumerable});return n};var x=(n,e,r)=>(r=n!=null?u(p(n)):{},s(e||!n||!n.__esModule?i(r,\"default\",{value:n,enumerable:!0}):r,n)),v=n=>s(i({},\"__esModule\",{value:!0}),n);var h=y((k,l)=>{l.exports=_jsx_runtime});var j={};w(j,{default:()=>d,frontmatter:()=>_});var t=x(h()),_={title:\"The Art of Kente: More Than Just a Fabric\",slug:\"the-art-of-kente\",category:\"culture\",excerpt:\"Discover the deep symbolism and history woven into every thread of Ghana's most iconic textile.\",coverImage:\"/images/article_kente.png\",author:\"Ama Serwaa\",publishedAt:\"2024-03-15\",readTime:6};function c(n){let e={h3:\"h3\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Kente is not just a cloth; it's a visual representation of history, philosophy, and oral tradition. Originating from the Ashanti Kingdom, this hand-woven fabric was once reserved for royalty.\"}),`\n`,(0,t.jsx)(e.h3,{children:\"The Meaning in the Colors\"}),`\n`,(0,t.jsx)(e.p,{children:\"Each color in a Kente cloth carries a specific meaning:\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Gold:\"}),\" Royalty, wealth, and spiritual purity.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Blue:\"}),\" Peace, harmony, and love.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Green:\"}),\" Harvest, planting, and spiritual renewal.\"]}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"When you walk through the streets of Kumasi, you'll see the loom workers meticulously throwing the shuttle back and forth, a craft passed down through generations.\"})]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(c,{...n})}):c(n)}return v(j);})();\n;return Component;"
+    },
+    "_id": "articles/art-of-kente.mdx",
+    "_raw": {
+      "sourceFilePath": "articles/art-of-kente.mdx",
+      "sourceFileName": "art-of-kente.mdx",
+      "sourceFileDir": "articles",
+      "contentType": "mdx",
+      "flattenedPath": "articles/art-of-kente"
+    },
+    "type": "Article"
+  },
+  {
+    "title": "Chale Wote: Accra's Street Art Explosion",
+    "slug": "chale-wote-festival",
+    "category": "festivals",
+    "excerpt": "Every August, the streets of Jamestown transform into a vibrant canvas of contemporary African art.",
+    "coverImage": "/images/article_chale_wote.png",
+    "author": "Naa Ayeley",
+    "publishedAt": "2024-03-20",
+    "readTime": 5,
+    "body": {
+      "raw": "\nChale Wote Street Art Festival brings together thousands of art lovers from across the globe. The name \"Chale Wote\" literally means \"Friend/Buddy, let's go\" in Ga, and it perfectly captures the communal spirit of the event.\n\nFrom massive murals to avant-garde performance art, the festival is a testament to Accra's position as a rising global hub for creativity.\n",
+      "code": "var Component=(()=>{var f=Object.create;var n=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,d=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),x=(e,t)=>{for(var r in t)n(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of p(t))!d.call(e,o)&&o!==r&&n(e,o,{get:()=>t[o],enumerable:!(s=u(t,o))||s.enumerable});return e};var y=(e,t,r)=>(r=e!=null?f(g(e)):{},i(t||!e||!e.__esModule?n(r,\"default\",{value:e,enumerable:!0}):r,e)),_=e=>i(n({},\"__esModule\",{value:!0}),e);var l=v((C,c)=>{c.exports=_jsx_runtime});var b={};x(b,{default:()=>h,frontmatter:()=>A});var a=y(l()),A={title:\"Chale Wote: Accra's Street Art Explosion\",slug:\"chale-wote-festival\",category:\"festivals\",excerpt:\"Every August, the streets of Jamestown transform into a vibrant canvas of contemporary African art.\",coverImage:\"/images/article_chale_wote.png\",author:\"Naa Ayeley\",publishedAt:\"2024-03-20\",readTime:5};function m(e){let t={p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.p,{children:`Chale Wote Street Art Festival brings together thousands of art lovers from across the globe. The name \"Chale Wote\" literally means \"Friend/Buddy, let's go\" in Ga, and it perfectly captures the communal spirit of the event.`}),`\n`,(0,a.jsx)(t.p,{children:\"From massive murals to avant-garde performance art, the festival is a testament to Accra's position as a rising global hub for creativity.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(m,{...e})}):m(e)}return _(b);})();\n;return Component;"
+    },
+    "_id": "articles/chale-wote.mdx",
+    "_raw": {
+      "sourceFilePath": "articles/chale-wote.mdx",
+      "sourceFileName": "chale-wote.mdx",
+      "sourceFileDir": "articles",
+      "contentType": "mdx",
+      "flattenedPath": "articles/chale-wote"
+    },
+    "type": "Article"
+  },
+  {
+    "title": "Echoes of the Past: A Visit to Elmina Castle",
+    "slug": "echoes-of-elmina",
+    "category": "history",
+    "excerpt": "A poignant journey through one of West Africa's most significant historical landmarks.",
+    "coverImage": "/images/article_elmina.png",
+    "author": "Kofi Mensah",
+    "publishedAt": "2024-03-10",
+    "readTime": 8,
+    "body": {
+      "raw": "\nStanding before the whitewashed walls of Elmina Castle, it's hard to reconcile the beauty of the Atlantic coast with the dark history contained within these dungeons. Built by the Portuguese in 1482, it is the oldest European building in sub-Saharan Africa.\n\nVisiting here is a heavy but necessary experience for anyone looking to understand the complex history of the Trans-Atlantic slave trade and the resilience of those who survived it.\n",
+      "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var i in t)a(e,i,{get:t[i],enumerable:!0})},r=(e,t,i,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of f(t))!p.call(e,o)&&o!==i&&a(e,o,{get:()=>t[o],enumerable:!(s=m(t,o))||s.enumerable});return e};var _=(e,t,i)=>(i=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?a(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>r(a({},\"__esModule\",{value:!0}),e);var c=x((v,h)=>{h.exports=_jsx_runtime});var A={};y(A,{default:()=>u,frontmatter:()=>w});var n=_(c()),w={title:\"Echoes of the Past: A Visit to Elmina Castle\",slug:\"echoes-of-elmina\",category:\"history\",excerpt:\"A poignant journey through one of West Africa's most significant historical landmarks.\",coverImage:\"/images/article_elmina.png\",author:\"Kofi Mensah\",publishedAt:\"2024-03-10\",readTime:8};function l(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Standing before the whitewashed walls of Elmina Castle, it's hard to reconcile the beauty of the Atlantic coast with the dark history contained within these dungeons. Built by the Portuguese in 1482, it is the oldest European building in sub-Saharan Africa.\"}),`\n`,(0,n.jsx)(t.p,{children:\"Visiting here is a heavy but necessary experience for anyone looking to understand the complex history of the Trans-Atlantic slave trade and the resilience of those who survived it.\"})]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return b(A);})();\n;return Component;"
+    },
+    "_id": "articles/echoes-of-elmina.mdx",
+    "_raw": {
+      "sourceFilePath": "articles/echoes-of-elmina.mdx",
+      "sourceFileName": "echoes-of-elmina.mdx",
+      "sourceFileDir": "articles",
+      "contentType": "mdx",
+      "flattenedPath": "articles/echoes-of-elmina"
+    },
+    "type": "Article"
+  }
+]

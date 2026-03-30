@@ -1,0 +1,429 @@
+{
+  "cacheItemsMap": {
+    "articles/art-of-kente.mdx": {
+      "document": {
+        "title": "The Art of Kente: More Than Just a Fabric",
+        "slug": "the-art-of-kente",
+        "category": "culture",
+        "excerpt": "Discover the deep symbolism and history woven into every thread of Ghana's most iconic textile.",
+        "coverImage": "/images/article_kente.png",
+        "author": "Ama Serwaa",
+        "publishedAt": "2024-03-15",
+        "readTime": 6,
+        "body": {
+          "raw": "\nKente is not just a cloth; it's a visual representation of history, philosophy, and oral tradition. Originating from the Ashanti Kingdom, this hand-woven fabric was once reserved for royalty.\n\n### The Meaning in the Colors\nEach color in a Kente cloth carries a specific meaning:\n- **Gold:** Royalty, wealth, and spiritual purity.\n- **Blue:** Peace, harmony, and love.\n- **Green:** Harvest, planting, and spiritual renewal.\n\nWhen you walk through the streets of Kumasi, you'll see the loom workers meticulously throwing the shuttle back and forth, a craft passed down through generations.\n",
+          "code": "var Component=(()=>{var u=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var r in e)i(n,r,{get:e[r],enumerable:!0})},s=(n,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of g(e))!f.call(n,o)&&o!==r&&i(n,o,{get:()=>e[o],enumerable:!(a=m(e,o))||a.enumerable});return n};var x=(n,e,r)=>(r=n!=null?u(p(n)):{},s(e||!n||!n.__esModule?i(r,\"default\",{value:n,enumerable:!0}):r,n)),v=n=>s(i({},\"__esModule\",{value:!0}),n);var h=y((k,l)=>{l.exports=_jsx_runtime});var j={};w(j,{default:()=>d,frontmatter:()=>_});var t=x(h()),_={title:\"The Art of Kente: More Than Just a Fabric\",slug:\"the-art-of-kente\",category:\"culture\",excerpt:\"Discover the deep symbolism and history woven into every thread of Ghana's most iconic textile.\",coverImage:\"/images/article_kente.png\",author:\"Ama Serwaa\",publishedAt:\"2024-03-15\",readTime:6};function c(n){let e={h3:\"h3\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.p,{children:\"Kente is not just a cloth; it's a visual representation of history, philosophy, and oral tradition. Originating from the Ashanti Kingdom, this hand-woven fabric was once reserved for royalty.\"}),`\n`,(0,t.jsx)(e.h3,{children:\"The Meaning in the Colors\"}),`\n`,(0,t.jsx)(e.p,{children:\"Each color in a Kente cloth carries a specific meaning:\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Gold:\"}),\" Royalty, wealth, and spiritual purity.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Blue:\"}),\" Peace, harmony, and love.\"]}),`\n`,(0,t.jsxs)(e.li,{children:[(0,t.jsx)(e.strong,{children:\"Green:\"}),\" Harvest, planting, and spiritual renewal.\"]}),`\n`]}),`\n`,(0,t.jsx)(e.p,{children:\"When you walk through the streets of Kumasi, you'll see the loom workers meticulously throwing the shuttle back and forth, a craft passed down through generations.\"})]})}function d(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,{...n,children:(0,t.jsx)(c,{...n})}):c(n)}return v(j);})();\n;return Component;"
+        },
+        "_id": "articles/art-of-kente.mdx",
+        "_raw": {
+          "sourceFilePath": "articles/art-of-kente.mdx",
+          "sourceFileName": "art-of-kente.mdx",
+          "sourceFileDir": "articles",
+          "contentType": "mdx",
+          "flattenedPath": "articles/art-of-kente"
+        },
+        "type": "Article"
+      },
+      "documentHash": "1773821158934",
+      "hasWarnings": false,
+      "documentTypeName": "Article"
+    },
+    "articles/chale-wote.mdx": {
+      "document": {
+        "title": "Chale Wote: Accra's Street Art Explosion",
+        "slug": "chale-wote-festival",
+        "category": "festivals",
+        "excerpt": "Every August, the streets of Jamestown transform into a vibrant canvas of contemporary African art.",
+        "coverImage": "/images/article_chale_wote.png",
+        "author": "Naa Ayeley",
+        "publishedAt": "2024-03-20",
+        "readTime": 5,
+        "body": {
+          "raw": "\nChale Wote Street Art Festival brings together thousands of art lovers from across the globe. The name \"Chale Wote\" literally means \"Friend/Buddy, let's go\" in Ga, and it perfectly captures the communal spirit of the event.\n\nFrom massive murals to avant-garde performance art, the festival is a testament to Accra's position as a rising global hub for creativity.\n",
+          "code": "var Component=(()=>{var f=Object.create;var n=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,d=Object.prototype.hasOwnProperty;var v=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),x=(e,t)=>{for(var r in t)n(e,r,{get:t[r],enumerable:!0})},i=(e,t,r,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of p(t))!d.call(e,o)&&o!==r&&n(e,o,{get:()=>t[o],enumerable:!(s=u(t,o))||s.enumerable});return e};var y=(e,t,r)=>(r=e!=null?f(g(e)):{},i(t||!e||!e.__esModule?n(r,\"default\",{value:e,enumerable:!0}):r,e)),_=e=>i(n({},\"__esModule\",{value:!0}),e);var l=v((C,c)=>{c.exports=_jsx_runtime});var b={};x(b,{default:()=>h,frontmatter:()=>A});var a=y(l()),A={title:\"Chale Wote: Accra's Street Art Explosion\",slug:\"chale-wote-festival\",category:\"festivals\",excerpt:\"Every August, the streets of Jamestown transform into a vibrant canvas of contemporary African art.\",coverImage:\"/images/article_chale_wote.png\",author:\"Naa Ayeley\",publishedAt:\"2024-03-20\",readTime:5};function m(e){let t={p:\"p\",...e.components};return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(t.p,{children:`Chale Wote Street Art Festival brings together thousands of art lovers from across the globe. The name \"Chale Wote\" literally means \"Friend/Buddy, let's go\" in Ga, and it perfectly captures the communal spirit of the event.`}),`\n`,(0,a.jsx)(t.p,{children:\"From massive murals to avant-garde performance art, the festival is a testament to Accra's position as a rising global hub for creativity.\"})]})}function h(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(m,{...e})}):m(e)}return _(b);})();\n;return Component;"
+        },
+        "_id": "articles/chale-wote.mdx",
+        "_raw": {
+          "sourceFilePath": "articles/chale-wote.mdx",
+          "sourceFileName": "chale-wote.mdx",
+          "sourceFileDir": "articles",
+          "contentType": "mdx",
+          "flattenedPath": "articles/chale-wote"
+        },
+        "type": "Article"
+      },
+      "documentHash": "1773821166975",
+      "hasWarnings": false,
+      "documentTypeName": "Article"
+    },
+    "articles/echoes-of-elmina.mdx": {
+      "document": {
+        "title": "Echoes of the Past: A Visit to Elmina Castle",
+        "slug": "echoes-of-elmina",
+        "category": "history",
+        "excerpt": "A poignant journey through one of West Africa's most significant historical landmarks.",
+        "coverImage": "/images/article_elmina.png",
+        "author": "Kofi Mensah",
+        "publishedAt": "2024-03-10",
+        "readTime": 8,
+        "body": {
+          "raw": "\nStanding before the whitewashed walls of Elmina Castle, it's hard to reconcile the beauty of the Atlantic coast with the dark history contained within these dungeons. Built by the Portuguese in 1482, it is the oldest European building in sub-Saharan Africa.\n\nVisiting here is a heavy but necessary experience for anyone looking to understand the complex history of the Trans-Atlantic slave trade and the resilience of those who survived it.\n",
+          "code": "var Component=(()=>{var d=Object.create;var a=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),y=(e,t)=>{for(var i in t)a(e,i,{get:t[i],enumerable:!0})},r=(e,t,i,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of f(t))!p.call(e,o)&&o!==i&&a(e,o,{get:()=>t[o],enumerable:!(s=m(t,o))||s.enumerable});return e};var _=(e,t,i)=>(i=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?a(i,\"default\",{value:e,enumerable:!0}):i,e)),b=e=>r(a({},\"__esModule\",{value:!0}),e);var c=x((v,h)=>{h.exports=_jsx_runtime});var A={};y(A,{default:()=>u,frontmatter:()=>w});var n=_(c()),w={title:\"Echoes of the Past: A Visit to Elmina Castle\",slug:\"echoes-of-elmina\",category:\"history\",excerpt:\"A poignant journey through one of West Africa's most significant historical landmarks.\",coverImage:\"/images/article_elmina.png\",author:\"Kofi Mensah\",publishedAt:\"2024-03-10\",readTime:8};function l(e){let t={p:\"p\",...e.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:\"Standing before the whitewashed walls of Elmina Castle, it's hard to reconcile the beauty of the Atlantic coast with the dark history contained within these dungeons. Built by the Portuguese in 1482, it is the oldest European building in sub-Saharan Africa.\"}),`\n`,(0,n.jsx)(t.p,{children:\"Visiting here is a heavy but necessary experience for anyone looking to understand the complex history of the Trans-Atlantic slave trade and the resilience of those who survived it.\"})]})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return b(A);})();\n;return Component;"
+        },
+        "_id": "articles/echoes-of-elmina.mdx",
+        "_raw": {
+          "sourceFilePath": "articles/echoes-of-elmina.mdx",
+          "sourceFileName": "echoes-of-elmina.mdx",
+          "sourceFileDir": "articles",
+          "contentType": "mdx",
+          "flattenedPath": "articles/echoes-of-elmina"
+        },
+        "type": "Article"
+      },
+      "documentHash": "1773821174775",
+      "hasWarnings": false,
+      "documentTypeName": "Article"
+    },
+    "itineraries/3-days-in-accra.mdx": {
+      "document": {
+        "title": "3 Days in Accra: The Heart of Ghana",
+        "slug": "3-days-in-accra",
+        "duration": 3,
+        "regions": [
+          "Greater Accra"
+        ],
+        "vibeTags": [
+          "City Culture",
+          "Art",
+          "Food"
+        ],
+        "bestSeason": "Year-round",
+        "coverImage": "/images/itinerary_accra.png",
+        "summary": "Immerse yourself in the bustling energy of West Africa's most vibrant coastal capital.",
+        "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.25704179339!2d-0.2662095907409441!3d5.590984852033604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed1c48c4ae4d817!2sAccra!5e0!3m2!1sen!2sgh!4v1710685000000!5m2!1sen!2sgh",
+        "days": [
+          {
+            "day": 1,
+            "title": "Old Accra & Street Art",
+            "morning": "Explore the historic Jamestown district. Climb the lighthouse for panoramic views and walk through the streets filled with murals.",
+            "afternoon": "Visit the Kwame Nkrumah Memorial Park and the nearby Arts Center for some souvenir hunting.",
+            "evening": "Head to Osu for dinner on Cantonments Road (Oxford Street).",
+            "eat": "Try the street food at Jamestown or dine at Chez Clarisse in Osu.",
+            "stay": "Osu or Cantonments"
+          },
+          {
+            "day": 2,
+            "title": "Culture & Commerce",
+            "morning": "Navigate the organized chaos of Makola Market. It's an sensory experience like no other.",
+            "afternoon": "Visit the National Museum of Ghana to see artifacts from across the country's history.",
+            "evening": "Enjoy live music at +233 Jazz Bar & Grill.",
+            "eat": "Buka Restaurant for authentic West African dishes.",
+            "stay": "Osu or Cantonments"
+          },
+          {
+            "day": 3,
+            "title": "Beaches & Nightlife",
+            "morning": "Relax at Labadi Beach or the more terminal Bojo Beach.",
+            "afternoon": "Check out the contemporary art galleries like Gallery 1957 or Nubuke Foundation.",
+            "evening": "Wrap up your trip with cocktails at Skybar 25 for a view of the city skyline.",
+            "eat": "Santoku for high-end fusion or Labadi beach grills for fresh fish.",
+            "stay": "Osu or Cantonments"
+          }
+        ],
+        "body": {
+          "raw": "\nAccra is a city that never really sleeps. It's loud, colorful, and incredibly welcoming. In three days, you'll only scratch the surface, but you'll definitely feel the rhythm of the city.\n",
+          "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var d=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var p=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),b=(e,t)=>{for(var a in t)o(e,a,{get:t[a],enumerable:!0})},i=(e,t,a,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let r of d(t))!g.call(e,r)&&r!==a&&o(e,r,{get:()=>t[r],enumerable:!(s=f(t,r))||s.enumerable});return e};var C=(e,t,a)=>(a=e!=null?u(y(e)):{},i(t||!e||!e.__esModule?o(a,\"default\",{value:e,enumerable:!0}):a,e)),k=e=>i(o({},\"__esModule\",{value:!0}),e);var l=p((A,c)=>{c.exports=_jsx_runtime});var w={};b(w,{default:()=>m,frontmatter:()=>v});var n=C(l()),v={title:\"3 Days in Accra: The Heart of Ghana\",slug:\"3-days-in-accra\",duration:3,regions:[\"Greater Accra\"],vibeTags:[\"City Culture\",\"Art\",\"Food\"],bestSeason:\"Year-round\",coverImage:\"/images/itinerary_accra.png\",summary:\"Immerse yourself in the bustling energy of West Africa's most vibrant coastal capital.\",mapEmbedUrl:\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.25704179339!2d-0.2662095907409441!3d5.590984852033604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed1c48c4ae4d817!2sAccra!5e0!3m2!1sen!2sgh!4v1710685000000!5m2!1sen!2sgh\",days:[{day:1,title:\"Old Accra & Street Art\",morning:\"Explore the historic Jamestown district. Climb the lighthouse for panoramic views and walk through the streets filled with murals.\",afternoon:\"Visit the Kwame Nkrumah Memorial Park and the nearby Arts Center for some souvenir hunting.\",evening:\"Head to Osu for dinner on Cantonments Road (Oxford Street).\",eat:\"Try the street food at Jamestown or dine at Chez Clarisse in Osu.\",stay:\"Osu or Cantonments\"},{day:2,title:\"Culture & Commerce\",morning:\"Navigate the organized chaos of Makola Market. It's an sensory experience like no other.\",afternoon:\"Visit the National Museum of Ghana to see artifacts from across the country's history.\",evening:\"Enjoy live music at +233 Jazz Bar & Grill.\",eat:\"Buka Restaurant for authentic West African dishes.\",stay:\"Osu or Cantonments\"},{day:3,title:\"Beaches & Nightlife\",morning:\"Relax at Labadi Beach or the more terminal Bojo Beach.\",afternoon:\"Check out the contemporary art galleries like Gallery 1957 or Nubuke Foundation.\",evening:\"Wrap up your trip with cocktails at Skybar 25 for a view of the city skyline.\",eat:\"Santoku for high-end fusion or Labadi beach grills for fresh fish.\",stay:\"Osu or Cantonments\"}]};function h(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Accra is a city that never really sleeps. It's loud, colorful, and incredibly welcoming. In three days, you'll only scratch the surface, but you'll definitely feel the rhythm of the city.\"})}function m(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(h,{...e})}):h(e)}return k(w);})();\n;return Component;"
+        },
+        "_id": "itineraries/3-days-in-accra.mdx",
+        "_raw": {
+          "sourceFilePath": "itineraries/3-days-in-accra.mdx",
+          "sourceFileName": "3-days-in-accra.mdx",
+          "sourceFileDir": "itineraries",
+          "contentType": "mdx",
+          "flattenedPath": "itineraries/3-days-in-accra"
+        },
+        "type": "Itinerary"
+      },
+      "documentHash": "1773821182743",
+      "hasWarnings": false,
+      "documentTypeName": "Itinerary"
+    },
+    "itineraries/accra-to-cape-coast.mdx": {
+      "document": {
+        "title": "5 Days: Accra to Cape Coast Loop",
+        "slug": "accra-to-cape-coast",
+        "duration": 5,
+        "regions": [
+          "Greater Accra",
+          "Central Region"
+        ],
+        "vibeTags": [
+          "History",
+          "Beaches",
+          "Nature"
+        ],
+        "bestSeason": "Dry season (Nov - March)",
+        "coverImage": "/images/itinerary_cape_coast.png",
+        "summary": "A journey through Ghana's coastal history and lush tropical rainforests.",
+        "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508499.78231945115!2d-1.74558231015625!3d5.3168869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdff063f6a6ca7f%3A0x7d6c6e76d97a660a!2sCentral%20Region!5e0!3m2!1sen!2sgh!4v1710685500000!5m2!1sen!2sgh",
+        "days": [
+          {
+            "day": 1,
+            "title": "Departure from Accra",
+            "morning": "Drive west from Accra towards Cape Coast. Stop at Kokrobite for a quick beach break.",
+            "afternoon": "Arrive in Cape Coast and check into your beachfront guesthouse.",
+            "evening": "Sunset walk along the shore near the castle.",
+            "eat": "Fresh grilled tilapia at your guesthouse.",
+            "stay": "Cape Coast Beachfront"
+          },
+          {
+            "day": 2,
+            "title": "The Castles of History",
+            "morning": "Guided tour of Cape Coast Castle. Prepare for an emotional journey through the dungeons.",
+            "afternoon": "Short drive to Elmina. Visit Elmina Castle (St. George's Castle) and watch the fishing boats return.",
+            "evening": "Relax at a local bar in Elmina town.",
+            "eat": "Try Fante Kenkey and fish in Elmina.",
+            "stay": "Cape Coast or Elmina"
+          },
+          {
+            "day": 3,
+            "title": "Treetops and Traditions",
+            "morning": "Early start at Kakum National Park. Braving the Canopy Walkway 40 meters above the forest floor.",
+            "afternoon": "Visit the Hans Cottage Botel to see crocodiles or take a traditional cooking class.",
+            "evening": "Drums and dancing at a local cultural center.",
+            "eat": "Groundnut soup at a local 'chop bar'.",
+            "stay": "Cape Coast"
+          },
+          {
+            "day": 4,
+            "title": "Anomabo Beach Days",
+            "morning": "Head to Anomabo beach for some serious relaxation on white sands.",
+            "afternoon": "Visit the Fort William or explore the historic Anomabo township.",
+            "evening": "Bonfire on the beach.",
+            "eat": "Seafood platter at Anomabo Beach Resort.",
+            "stay": "Anomabo"
+          },
+          {
+            "day": 5,
+            "title": "Return to the Capital",
+            "morning": "Slow morning at the beach. Late breakfast.",
+            "afternoon": "Scenic drive back to Accra, stopping at roadside fruit stands for fresh mangoes and pineapples.",
+            "evening": "Farewell dinner in Accra.",
+            "eat": "Roadside 'FanMilk' for the journey back.",
+            "stay": "Accra"
+          }
+        ],
+        "body": {
+          "raw": "\nThe Central Region offers a perfect blend of solemn history and tropical beauty. This route is essential for any first-time visitor to Ghana.\n",
+          "code": "var Component=(()=>{var d=Object.create;var n=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var y=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),b=(a,e)=>{for(var t in e)n(a,t,{get:e[t],enumerable:!0})},i=(a,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of u(e))!g.call(a,o)&&o!==t&&n(a,o,{get:()=>e[o],enumerable:!(s=f(e,o))||s.enumerable});return a};var C=(a,e,t)=>(t=a!=null?d(p(a)):{},i(e||!a||!a.__esModule?n(t,\"default\",{value:a,enumerable:!0}):t,a)),v=a=>i(n({},\"__esModule\",{value:!0}),a);var l=y((x,c)=>{c.exports=_jsx_runtime});var A={};b(A,{default:()=>m,frontmatter:()=>k});var r=C(l()),k={title:\"5 Days: Accra to Cape Coast Loop\",slug:\"accra-to-cape-coast\",duration:5,regions:[\"Greater Accra\",\"Central Region\"],vibeTags:[\"History\",\"Beaches\",\"Nature\"],bestSeason:\"Dry season (Nov - March)\",coverImage:\"/images/itinerary_cape_coast.png\",summary:\"A journey through Ghana's coastal history and lush tropical rainforests.\",mapEmbedUrl:\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508499.78231945115!2d-1.74558231015625!3d5.3168869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdff063f6a6ca7f%3A0x7d6c6e76d97a660a!2sCentral%20Region!5e0!3m2!1sen!2sgh!4v1710685500000!5m2!1sen!2sgh\",days:[{day:1,title:\"Departure from Accra\",morning:\"Drive west from Accra towards Cape Coast. Stop at Kokrobite for a quick beach break.\",afternoon:\"Arrive in Cape Coast and check into your beachfront guesthouse.\",evening:\"Sunset walk along the shore near the castle.\",eat:\"Fresh grilled tilapia at your guesthouse.\",stay:\"Cape Coast Beachfront\"},{day:2,title:\"The Castles of History\",morning:\"Guided tour of Cape Coast Castle. Prepare for an emotional journey through the dungeons.\",afternoon:\"Short drive to Elmina. Visit Elmina Castle (St. George's Castle) and watch the fishing boats return.\",evening:\"Relax at a local bar in Elmina town.\",eat:\"Try Fante Kenkey and fish in Elmina.\",stay:\"Cape Coast or Elmina\"},{day:3,title:\"Treetops and Traditions\",morning:\"Early start at Kakum National Park. Braving the Canopy Walkway 40 meters above the forest floor.\",afternoon:\"Visit the Hans Cottage Botel to see crocodiles or take a traditional cooking class.\",evening:\"Drums and dancing at a local cultural center.\",eat:\"Groundnut soup at a local 'chop bar'.\",stay:\"Cape Coast\"},{day:4,title:\"Anomabo Beach Days\",morning:\"Head to Anomabo beach for some serious relaxation on white sands.\",afternoon:\"Visit the Fort William or explore the historic Anomabo township.\",evening:\"Bonfire on the beach.\",eat:\"Seafood platter at Anomabo Beach Resort.\",stay:\"Anomabo\"},{day:5,title:\"Return to the Capital\",morning:\"Slow morning at the beach. Late breakfast.\",afternoon:\"Scenic drive back to Accra, stopping at roadside fruit stands for fresh mangoes and pineapples.\",evening:\"Farewell dinner in Accra.\",eat:\"Roadside 'FanMilk' for the journey back.\",stay:\"Accra\"}]};function h(a){let e={p:\"p\",...a.components};return(0,r.jsx)(e.p,{children:\"The Central Region offers a perfect blend of solemn history and tropical beauty. This route is essential for any first-time visitor to Ghana.\"})}function m(a={}){let{wrapper:e}=a.components||{};return e?(0,r.jsx)(e,{...a,children:(0,r.jsx)(h,{...a})}):h(a)}return v(A);})();\n;return Component;"
+        },
+        "_id": "itineraries/accra-to-cape-coast.mdx",
+        "_raw": {
+          "sourceFilePath": "itineraries/accra-to-cape-coast.mdx",
+          "sourceFileName": "accra-to-cape-coast.mdx",
+          "sourceFileDir": "itineraries",
+          "contentType": "mdx",
+          "flattenedPath": "itineraries/accra-to-cape-coast"
+        },
+        "type": "Itinerary"
+      },
+      "documentHash": "1773821190495",
+      "hasWarnings": false,
+      "documentTypeName": "Itinerary"
+    },
+    "recipes/groundnut-soup.mdx": {
+      "document": {
+        "title": "Creamy Groundnut Soup",
+        "slug": "groundnut-soup",
+        "category": "soups",
+        "description": "A rich, nutty, and spicy soup made from roasted peanuts, usually served with fufu or rice balls (omtuo).",
+        "coverImage": "/images/recipe_groundnut_soup.png",
+        "prepTime": 15,
+        "cookTime": 45,
+        "servings": 4,
+        "difficulty": "medium",
+        "ingredients": [
+          "1 cup natural peanut butter (no added sugar)",
+          "500g chicken or goat meat, cut into pieces",
+          "2 large tomatoes",
+          "1 large onion",
+          "Fresh ginger and garlic",
+          "2 Scotch bonnet peppers",
+          "1 tbsp tomato paste",
+          "Salt and bouillon cubes to taste"
+        ],
+        "instructions": [
+          "Season the meat with salt, blended ginger, garlic, and onions. Steam in a pot for 10-15 minutes.",
+          "In a separate pan, mix the peanut butter with a little water and the tomato paste. Stir over low heat until the oil begins to surface.",
+          "Add the peanut mixture to the steaming meat.",
+          "Add whole tomatoes, onion, and peppers to the pot. Once they are soft, remove them, blend, and strain back into the soup.",
+          "Add enough water to reach your desired consistency and simmer for 25-30 minutes until the oil rises to the top."
+        ],
+        "tips": "The oil rising to the top is the sign that the soup is ready. Serve with fufu for the most authentic experience, but it's also delicious with plain steamed rice.",
+        "body": {
+          "raw": "\nGroundnut soup is the ultimate comfort food. It's savory, slightly sweet from the peanuts, and has just enough kick to warm you up.\n",
+          "code": "var Component=(()=>{var m=Object.create;var i=Object.defineProperty;var h=Object.getOwnPropertyDescriptor;var l=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var o in e)i(t,o,{get:e[o],enumerable:!0})},r=(t,e,o,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let n of l(e))!f.call(t,n)&&n!==o&&i(t,n,{get:()=>e[n],enumerable:!(a=h(e,n))||a.enumerable});return t};var w=(t,e,o)=>(o=t!=null?m(g(t)):{},r(e||!t||!t.__esModule?i(o,\"default\",{value:t,enumerable:!0}):o,t)),x=t=>r(i({},\"__esModule\",{value:!0}),t);var p=y((k,u)=>{u.exports=_jsx_runtime});var S={};b(S,{default:()=>d,frontmatter:()=>v});var s=w(p()),v={title:\"Creamy Groundnut Soup\",slug:\"groundnut-soup\",category:\"soups\",description:\"A rich, nutty, and spicy soup made from roasted peanuts, usually served with fufu or rice balls (omtuo).\",coverImage:\"/images/recipe_groundnut_soup.png\",prepTime:15,cookTime:45,servings:4,difficulty:\"medium\",ingredients:[\"1 cup natural peanut butter (no added sugar)\",\"500g chicken or goat meat, cut into pieces\",\"2 large tomatoes\",\"1 large onion\",\"Fresh ginger and garlic\",\"2 Scotch bonnet peppers\",\"1 tbsp tomato paste\",\"Salt and bouillon cubes to taste\"],instructions:[\"Season the meat with salt, blended ginger, garlic, and onions. Steam in a pot for 10-15 minutes.\",\"In a separate pan, mix the peanut butter with a little water and the tomato paste. Stir over low heat until the oil begins to surface.\",\"Add the peanut mixture to the steaming meat.\",\"Add whole tomatoes, onion, and peppers to the pot. Once they are soft, remove them, blend, and strain back into the soup.\",\"Add enough water to reach your desired consistency and simmer for 25-30 minutes until the oil rises to the top.\"],tips:\"The oil rising to the top is the sign that the soup is ready. Serve with fufu for the most authentic experience, but it's also delicious with plain steamed rice.\"};function c(t){let e={p:\"p\",...t.components};return(0,s.jsx)(e.p,{children:\"Groundnut soup is the ultimate comfort food. It's savory, slightly sweet from the peanuts, and has just enough kick to warm you up.\"})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,s.jsx)(e,{...t,children:(0,s.jsx)(c,{...t})}):c(t)}return x(S);})();\n;return Component;"
+        },
+        "_id": "recipes/groundnut-soup.mdx",
+        "_raw": {
+          "sourceFilePath": "recipes/groundnut-soup.mdx",
+          "sourceFileName": "groundnut-soup.mdx",
+          "sourceFileDir": "recipes",
+          "contentType": "mdx",
+          "flattenedPath": "recipes/groundnut-soup"
+        },
+        "type": "Recipe"
+      },
+      "documentHash": "1773821247638",
+      "hasWarnings": false,
+      "documentTypeName": "Recipe"
+    },
+    "recipes/jollof-rice.mdx": {
+      "document": {
+        "title": "Ghanaian Jollof Rice",
+        "slug": "ghanaian-jollof-rice",
+        "category": "rice-dishes",
+        "description": "The smoky, spicy, and deeply flavorful rice dish at the center of the famous Jollof wars.",
+        "coverImage": "/images/recipe_jollof.png",
+        "prepTime": 20,
+        "cookTime": 50,
+        "servings": 6,
+        "difficulty": "medium",
+        "ingredients": [
+          "3 cups long-grain perfumed rice (Jasmine)",
+          "5 large tomatoes",
+          "2 large red onions",
+          "1 head of garlic",
+          "Fresh ginger (thumb-sized)",
+          "2 Scotch bonnet peppers (adjust for heat)",
+          "1/2 cup tomato paste",
+          "1 cup vegetable oil",
+          "2 cups chicken or vegetable stock",
+          "1 tsp curry powder",
+          "1 tsp thyme",
+          "Bay leaves",
+          "Salt to taste"
+        ],
+        "instructions": [
+          "Blend tomatoes, one onion, garlic, ginger, and scotch bonnets into a smooth puree.",
+          "Heat oil in a large pot and sauté the remaining sliced onion until translucent.",
+          "Add tomato paste and fry for about 5-8 minutes until it darkens slightly and loses its sourness.",
+          "Pour in the blended puree and cook down until the oil starts to separate from the sauce (the 'stew' base).",
+          "Season with curry, thyme, bay leaves, and salt.",
+          "Wash the rice thoroughly to remove excess starch, then add it to the pot, stirring well to coat with the stew.",
+          "Add the stock. The liquid should just cover the rice. Cover tightly with foil and a lid.",
+          "Cook on very low heat for 30-40 mins, gently turning the rice every 10 mins until fluffy and cooked through."
+        ],
+        "tips": "The secret to great Jollof is 'the smoke'. Don't be afraid if the bottom burns slightly—that's where the flavor lives. For international cooks, use a heavy-bottomed pot to ensure even heat distribution.",
+        "body": {
+          "raw": "\nJollof is more than just a meal in Ghana; it's an institution. Whether it's a wedding, a funeral, or a Friday night out, Jollof is the guest of honor.\n",
+          "code": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),v=(e,t)=>{for(var o in t)i(e,o,{get:t[o],enumerable:!0})},r=(e,t,o,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let n of f(t))!p.call(e,n)&&n!==o&&i(e,n,{get:()=>t[n],enumerable:!(s=m(t,n))||s.enumerable});return e};var b=(e,t,o)=>(o=e!=null?d(g(e)):{},r(t||!e||!e.__esModule?i(o,\"default\",{value:e,enumerable:!0}):o,e)),w=e=>r(i({},\"__esModule\",{value:!0}),e);var h=y((J,l)=>{l.exports=_jsx_runtime});var j={};v(j,{default:()=>u,frontmatter:()=>k});var a=b(h()),k={title:\"Ghanaian Jollof Rice\",slug:\"ghanaian-jollof-rice\",category:\"rice-dishes\",description:\"The smoky, spicy, and deeply flavorful rice dish at the center of the famous Jollof wars.\",coverImage:\"/images/recipe_jollof.png\",prepTime:20,cookTime:50,servings:6,difficulty:\"medium\",ingredients:[\"3 cups long-grain perfumed rice (Jasmine)\",\"5 large tomatoes\",\"2 large red onions\",\"1 head of garlic\",\"Fresh ginger (thumb-sized)\",\"2 Scotch bonnet peppers (adjust for heat)\",\"1/2 cup tomato paste\",\"1 cup vegetable oil\",\"2 cups chicken or vegetable stock\",\"1 tsp curry powder\",\"1 tsp thyme\",\"Bay leaves\",\"Salt to taste\"],instructions:[\"Blend tomatoes, one onion, garlic, ginger, and scotch bonnets into a smooth puree.\",\"Heat oil in a large pot and saut\\xE9 the remaining sliced onion until translucent.\",\"Add tomato paste and fry for about 5-8 minutes until it darkens slightly and loses its sourness.\",\"Pour in the blended puree and cook down until the oil starts to separate from the sauce (the 'stew' base).\",\"Season with curry, thyme, bay leaves, and salt.\",\"Wash the rice thoroughly to remove excess starch, then add it to the pot, stirring well to coat with the stew.\",\"Add the stock. The liquid should just cover the rice. Cover tightly with foil and a lid.\",\"Cook on very low heat for 30-40 mins, gently turning the rice every 10 mins until fluffy and cooked through.\"],tips:\"The secret to great Jollof is 'the smoke'. Don't be afraid if the bottom burns slightly\\u2014that's where the flavor lives. For international cooks, use a heavy-bottomed pot to ensure even heat distribution.\"};function c(e){let t={p:\"p\",...e.components};return(0,a.jsx)(t.p,{children:\"Jollof is more than just a meal in Ghana; it's an institution. Whether it's a wedding, a funeral, or a Friday night out, Jollof is the guest of honor.\"})}function u(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,{...e,children:(0,a.jsx)(c,{...e})}):c(e)}return w(j);})();\n;return Component;"
+        },
+        "_id": "recipes/jollof-rice.mdx",
+        "_raw": {
+          "sourceFilePath": "recipes/jollof-rice.mdx",
+          "sourceFileName": "jollof-rice.mdx",
+          "sourceFileDir": "recipes",
+          "contentType": "mdx",
+          "flattenedPath": "recipes/jollof-rice"
+        },
+        "type": "Recipe"
+      },
+      "documentHash": "1773821198307",
+      "hasWarnings": false,
+      "documentTypeName": "Recipe"
+    },
+    "recipes/kelewele.mdx": {
+      "document": {
+        "title": "Kelewele (Spiced Fried Plantains)",
+        "slug": "kelewele-spiced-plantains",
+        "category": "street-food",
+        "description": "The ultimate Ghanaian street snack—sweet ripe plantains marinated in ginger and spices, then fried to perfection.",
+        "coverImage": "/images/recipe_kelewele.png",
+        "prepTime": 15,
+        "cookTime": 10,
+        "servings": 4,
+        "difficulty": "easy",
+        "ingredients": [
+          "4 very ripe plantains (yellow with black spots)",
+          "2 tbsp fresh ginger, grated",
+          "1 small onion, finely minced",
+          "1 tsp chili powder or cayenne",
+          "1/2 tsp ground cloves",
+          "1/2 tsp salt",
+          "Vegetable oil for deep frying"
+        ],
+        "instructions": [
+          "Peel the plantains and cut them into small cubes or diagonal slices.",
+          "In a bowl, mix the ginger, onion, chili powder, cloves, and salt into a paste.",
+          "Toss the plantain cubes in the spice paste until evenly coated. Let it marinate for at least 15 minutes.",
+          "Heat oil in a deep pan. Fry the plantains in batches until they are golden brown and slightly caramelized at the edges.",
+          "Drain on paper towels and serve hot."
+        ],
+        "tips": "Serve with roasted peanuts for the authentic roadside experience. If you can't find very ripe plantains, wait until they are almost black—that's when they are sweetest!",
+        "body": {
+          "raw": "\nYou'll find Kelewele vendors on almost every corner in Accra as soon as the sun goes down. The smell of frying ginger is the signal that the night has begun.\n",
+          "code": "var Component=(()=>{var h=Object.create;var a=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),w=(e,t)=>{for(var n in t)a(e,n,{get:t[n],enumerable:!0})},r=(e,t,n,o)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of u(t))!f.call(e,i)&&i!==n&&a(e,i,{get:()=>t[i],enumerable:!(o=g(t,i))||o.enumerable});return e};var v=(e,t,n)=>(n=e!=null?h(m(e)):{},r(t||!e||!e.__esModule?a(n,\"default\",{value:e,enumerable:!0}):n,e)),b=e=>r(a({},\"__esModule\",{value:!0}),e);var c=y((T,l)=>{l.exports=_jsx_runtime});var k={};w(k,{default:()=>d,frontmatter:()=>x});var s=v(c()),x={title:\"Kelewele (Spiced Fried Plantains)\",slug:\"kelewele-spiced-plantains\",category:\"street-food\",description:\"The ultimate Ghanaian street snack\\u2014sweet ripe plantains marinated in ginger and spices, then fried to perfection.\",coverImage:\"/images/recipe_kelewele.png\",prepTime:15,cookTime:10,servings:4,difficulty:\"easy\",ingredients:[\"4 very ripe plantains (yellow with black spots)\",\"2 tbsp fresh ginger, grated\",\"1 small onion, finely minced\",\"1 tsp chili powder or cayenne\",\"1/2 tsp ground cloves\",\"1/2 tsp salt\",\"Vegetable oil for deep frying\"],instructions:[\"Peel the plantains and cut them into small cubes or diagonal slices.\",\"In a bowl, mix the ginger, onion, chili powder, cloves, and salt into a paste.\",\"Toss the plantain cubes in the spice paste until evenly coated. Let it marinate for at least 15 minutes.\",\"Heat oil in a deep pan. Fry the plantains in batches until they are golden brown and slightly caramelized at the edges.\",\"Drain on paper towels and serve hot.\"],tips:\"Serve with roasted peanuts for the authentic roadside experience. If you can't find very ripe plantains, wait until they are almost black\\u2014that's when they are sweetest!\"};function p(e){let t={p:\"p\",...e.components};return(0,s.jsx)(t.p,{children:\"You'll find Kelewele vendors on almost every corner in Accra as soon as the sun goes down. The smell of frying ginger is the signal that the night has begun.\"})}function d(e={}){let{wrapper:t}=e.components||{};return t?(0,s.jsx)(t,{...e,children:(0,s.jsx)(p,{...e})}):p(e)}return b(k);})();\n;return Component;"
+        },
+        "_id": "recipes/kelewele.mdx",
+        "_raw": {
+          "sourceFilePath": "recipes/kelewele.mdx",
+          "sourceFileName": "kelewele.mdx",
+          "sourceFileDir": "recipes",
+          "contentType": "mdx",
+          "flattenedPath": "recipes/kelewele"
+        },
+        "type": "Recipe"
+      },
+      "documentHash": "1773821231592",
+      "hasWarnings": false,
+      "documentTypeName": "Recipe"
+    },
+    "recipes/waakye.mdx": {
+      "document": {
+        "title": "Classic Waakye",
+        "slug": "classic-waakye",
+        "category": "rice-dishes",
+        "description": "A nutritious breakfast staple of rice and beans cooked with dried sorghum leaves for a unique reddish-purple hue.",
+        "coverImage": "/images/recipe_waakye.png",
+        "prepTime": 20,
+        "cookTime": 60,
+        "servings": 6,
+        "difficulty": "medium",
+        "ingredients": [
+          "2 cups black-eyed peas (soaked overnight)",
+          "3 cups long-grain rice",
+          "4-6 dried sorghum leaves (waakye leaves)",
+          "1/2 tsp baking soda (optional, for color and softening)",
+          "Salt to taste",
+          "Water"
+        ],
+        "instructions": [
+          "Boil the soaked beans with the sorghum leaves in a large pot until the beans are half-cooked and the water has turned deep wine-red.",
+          "Remove the leaves (or leave them in for more color).",
+          "Add the washed rice to the pot with the beans. Add more water if necessary; it should be about an inch above the rice.",
+          "Add salt and baking soda if using.",
+          "Cover tightly and simmer on low heat until the rice and beans are tender and the water is fully absorbed.",
+          "Fluff with a fork and serve with traditional accompaniments."
+        ],
+        "tips": "Waakye is incomplete without Shito (black pepper sauce), wele (cowhide) stew, and spaghetti (talalia). If you can't find sorghum leaves, you can omit them, though the color will be different.",
+        "body": {
+          "raw": "\nWaakye is the breakfast of champions in Ghana. It's traditionally served in a broad leaf (Katemanth), which adds its own subtle earthy aroma to the dish.\n",
+          "code": "var Component=(()=>{var u=Object.create;var o=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var f=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),b=(e,t)=>{for(var a in t)o(e,a,{get:t[a],enumerable:!0})},r=(e,t,a,s)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let i of p(t))!g.call(e,i)&&i!==a&&o(e,i,{get:()=>t[i],enumerable:!(s=m(t,i))||s.enumerable});return e};var k=(e,t,a)=>(a=e!=null?u(f(e)):{},r(t||!e||!e.__esModule?o(a,\"default\",{value:e,enumerable:!0}):a,e)),y=e=>r(o({},\"__esModule\",{value:!0}),e);var h=w((A,d)=>{d.exports=_jsx_runtime});var x={};b(x,{default:()=>c,frontmatter:()=>v});var n=k(h()),v={title:\"Classic Waakye\",slug:\"classic-waakye\",category:\"rice-dishes\",description:\"A nutritious breakfast staple of rice and beans cooked with dried sorghum leaves for a unique reddish-purple hue.\",coverImage:\"/images/recipe_waakye.png\",prepTime:20,cookTime:60,servings:6,difficulty:\"medium\",ingredients:[\"2 cups black-eyed peas (soaked overnight)\",\"3 cups long-grain rice\",\"4-6 dried sorghum leaves (waakye leaves)\",\"1/2 tsp baking soda (optional, for color and softening)\",\"Salt to taste\",\"Water\"],instructions:[\"Boil the soaked beans with the sorghum leaves in a large pot until the beans are half-cooked and the water has turned deep wine-red.\",\"Remove the leaves (or leave them in for more color).\",\"Add the washed rice to the pot with the beans. Add more water if necessary; it should be about an inch above the rice.\",\"Add salt and baking soda if using.\",\"Cover tightly and simmer on low heat until the rice and beans are tender and the water is fully absorbed.\",\"Fluff with a fork and serve with traditional accompaniments.\"],tips:\"Waakye is incomplete without Shito (black pepper sauce), wele (cowhide) stew, and spaghetti (talalia). If you can't find sorghum leaves, you can omit them, though the color will be different.\"};function l(e){let t={p:\"p\",...e.components};return(0,n.jsx)(t.p,{children:\"Waakye is the breakfast of champions in Ghana. It's traditionally served in a broad leaf (Katemanth), which adds its own subtle earthy aroma to the dish.\"})}function c(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(l,{...e})}):l(e)}return y(x);})();\n;return Component;"
+        },
+        "_id": "recipes/waakye.mdx",
+        "_raw": {
+          "sourceFilePath": "recipes/waakye.mdx",
+          "sourceFileName": "waakye.mdx",
+          "sourceFileDir": "recipes",
+          "contentType": "mdx",
+          "flattenedPath": "recipes/waakye"
+        },
+        "type": "Recipe"
+      },
+      "documentHash": "1773821239559",
+      "hasWarnings": false,
+      "documentTypeName": "Recipe"
+    }
+  }
+}
