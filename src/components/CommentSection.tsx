@@ -21,12 +21,16 @@ export default async function CommentSection({
 }: CommentSectionProps) {
   const supabase = await createClient()
 
-  const { data } = await supabase
-    .from('comments')
-    .select('id, body, guest_name, created_at')
-    .eq('article_id', articleId)
-    .eq('status', 'approved')
-    .order('created_at', { ascending: true })
+  let data: any[] | null = null
+  if (supabase) {
+    const { data: fetchedData } = await supabase
+      .from('comments')
+      .select('id, body, guest_name, created_at')
+      .eq('article_id', articleId)
+      .eq('status', 'approved')
+      .order('created_at', { ascending: true })
+    data = fetchedData
+  }
 
   const comments: CommentRow[] = (data ?? []) as CommentRow[]
 
