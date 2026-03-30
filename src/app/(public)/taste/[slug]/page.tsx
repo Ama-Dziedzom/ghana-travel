@@ -4,16 +4,15 @@ import Image from "next/image";
 import RecipeCard from "@/components/RecipeCard";
 import { Clock, Users, BarChart, ChefHat } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 interface RecipePageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateStaticParams() {
-  const recipes = await getRecipes();
-  return recipes.map((recipe) => ({ slug: recipe.slug }));
-}
+
 
 export default async function RecipePage({ params }: RecipePageProps) {
   const [recipe, allRecipes] = await Promise.all([

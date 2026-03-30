@@ -5,16 +5,15 @@ import DayAccordion from "@/components/DayAccordion";
 import ItineraryCard from "@/components/ItineraryCard";
 import { MapPin, Sun, Thermometer, BarChart } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 interface ItineraryPageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateStaticParams() {
-  const itineraries = await getItineraries();
-  return itineraries.map((itinerary) => ({ slug: itinerary.slug }));
-}
+
 
 export default async function ItineraryPage({ params }: ItineraryPageProps) {
   const [itinerary, allItineraries] = await Promise.all([

@@ -7,16 +7,15 @@ import ArticleCard from "@/components/ArticleCard";
 import CommentSection from "@/components/CommentSection";
 import { Clock, Calendar, User } from "lucide-react";
 
+export const dynamic = 'force-dynamic';
+
 interface ArticlePageProps {
   params: {
     slug: string;
   };
 }
 
-export async function generateStaticParams() {
-  const articles = await getArticles();
-  return articles.map((article) => ({ slug: article.slug }));
-}
+
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
   const [article, allArticles] = await Promise.all([
