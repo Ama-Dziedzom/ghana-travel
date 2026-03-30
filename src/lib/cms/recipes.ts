@@ -7,12 +7,16 @@ function publicClient() {
   if (!url || !key) return null
   return createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
+    global: {
+      fetch: (input, init) =>
+        fetch(input, { ...init, cache: 'no-store' }),
+    },
   })
 }
 
 export async function getRecipes(): Promise<Recipe[]> {
   const client = publicClient()
-  if (!client) return getLocalRecipes()
+  if (!client) return []
 
   const { data, error } = await client
     .from('recipes')
@@ -20,15 +24,18 @@ export async function getRecipes(): Promise<Recipe[]> {
     .eq('status', 'published')
     .order('created_at', { ascending: false })
 
-  if (error || !data) return getLocalRecipes()
+  if (error || !data) {
+    console.error('[getRecipes] Supabase error:', error)
+    return []
+  }
   return data
 }
 
 export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
   const client = publicClient()
   if (!client) {
-    const local = await getLocalRecipes()
-    return local.find((r) => r.slug === slug) ?? null
+    console.error('[getRecipeBySlug] No Supabase client — env vars missing')
+    return null
   }
 
   const { data, error } = await client
@@ -38,45 +45,15 @@ export async function getRecipeBySlug(slug: string): Promise<Recipe | null> {
     .eq('status', 'published')
     .maybeSingle()
 
-  if (error || !data) {
-    const local = await getLocalRecipes()
-    return local.find((r) => r.slug === slug) ?? null
+  if (error) {
+    console.error('[getRecipeBySlug] Supabase error for slug:', slug, error)
+    return null
+  }
+
+  if (!data) {
+    console.error('[getRecipeBySlug] No recipe found for slug:', slug)
+    return null
   }
 
   return data
-}
-
-// ─── Local MDX fallback ────────────────────────────────────────────────────────
-async function getLocalRecipes(): Promise<Recipe[]> {
-  const fs = await import('fs')
-  const path = await import('path')
-  const matter = (await import('gray-matter')).default
-
-  const contentDir = path.join(process.cwd(), 'content', 'recipes')
-  if (!fs.existsSync(contentDir)) return []
-
-  const files = fs.readdirSync(contentDir).filter((f: string) => f.endsWith('.mdx'))
-
-  return files.map((file: string) => {
-    const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8')
-    const { data } = matter(raw)
-    return {
-      id: data.slug,
-      title: data.title ?? '',
-      slug: data.slug ?? file.replace('.mdx', ''),
-      category: data.category ?? 'soups',
-      description: data.description ?? null,
-      cover_image: data.coverImage ?? null,
-      prep_time: data.prepTime ?? null,
-      cook_time: data.cookTime ?? null,
-      servings: data.servings ?? null,
-      difficulty: data.difficulty ?? null,
-      ingredients: data.ingredients ?? null,
-      instructions: data.instructions ?? null,
-      tips: data.tips ?? null,
-      status: 'published' as const,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    } as Recipe
-  })
 }

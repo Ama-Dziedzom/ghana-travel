@@ -9,6 +9,10 @@ function publicClient() {
   if (!url || !key) return null
   return createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
+    global: {
+      fetch: (input, init) =>
+        fetch(input, { ...init, cache: 'no-store' }),
+    },
   })
 }
 
@@ -23,7 +27,7 @@ function withAuthorName(data: (Article & { authors?: { name: string } | null })[
 
 export async function getArticles(): Promise<ArticleWithAuthor[]> {
   const client = publicClient()
-  if (!client) return getLocalArticles()
+  if (!client) return []
 
   const { data, error } = await client
     .from('articles')
@@ -31,15 +35,18 @@ export async function getArticles(): Promise<ArticleWithAuthor[]> {
     .eq('status', 'published')
     .order('published_at', { ascending: false })
 
-  if (error || !data) return getLocalArticles()
+  if (error || !data) {
+    console.error('[getArticles] Supabase error:', error)
+    return []
+  }
   return withAuthorName(data as (Article & { authors?: { name: string } | null })[])
 }
 
 export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor | null> {
   const client = publicClient()
   if (!client) {
-    const local = await getLocalArticles()
-    return local.find((a) => a.slug === slug) ?? null
+    console.error('[getArticleBySlug] No Supabase client — env vars missing')
+    return null
   }
 
   const { data, error } = await client
@@ -49,44 +56,17 @@ export async function getArticleBySlug(slug: string): Promise<ArticleWithAuthor 
     .eq('status', 'published')
     .maybeSingle()
 
-  if (error || !data) {
-    const local = await getLocalArticles()
-    return local.find((a) => a.slug === slug) ?? null
+  if (error) {
+    console.error('[getArticleBySlug] Supabase error for slug:', slug, error)
+    return null
+  }
+
+  if (!data) {
+    console.error('[getArticleBySlug] No article found for slug:', slug)
+    return null
   }
 
   const { authors, ...article } = data as Article & { authors?: { name: string } | null }
   return { ...article, _author_name: authors?.name ?? null }
 }
 
-// ─── Local MDX fallback (dev/emergency only) ──────────────────────────────────
-async function getLocalArticles(): Promise<ArticleWithAuthor[]> {
-  const fs = await import('fs')
-  const path = await import('path')
-  const matter = (await import('gray-matter')).default
-
-  const contentDir = path.join(process.cwd(), 'content', 'articles')
-  if (!fs.existsSync(contentDir)) return []
-
-  const files = fs.readdirSync(contentDir).filter((f: string) => f.endsWith('.mdx'))
-
-  return files.map((file: string) => {
-    const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8')
-    const { data, content } = matter(raw)
-    return {
-      id: data.slug,
-      title: data.title ?? '',
-      slug: data.slug ?? file.replace('.mdx', ''),
-      category: data.category ?? 'culture',
-      excerpt: data.excerpt ?? null,
-      cover_image: data.coverImage ?? null,
-      author_id: null,
-      published_at: data.publishedAt ?? null,
-      read_time: data.readTime ?? null,
-      body_mdx: content,
-      status: 'published' as const,
-      created_at: data.publishedAt ?? new Date().toISOString(),
-      updated_at: data.publishedAt ?? new Date().toISOString(),
-      _author_name: data.author ?? null,
-    }
-  })
-}
