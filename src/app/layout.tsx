@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
+
 
 
 const displayFont = Cormorant_Garamond({
@@ -34,6 +36,7 @@ export default function RootLayout({
         <Toaster position="bottom-right" />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
