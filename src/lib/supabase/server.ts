@@ -10,6 +10,11 @@ import type { Database } from './types'
 export async function createClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  
+  if (process.env.NODE_ENV !== 'development') {
+    console.log(`[SUPABASE_SERVER] Initializing with URL: ${url?.split('.')[0]}...`)
+  }
+
   if (!url || !key) throw new Error('Missing Supabase env vars (NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY)')
 
   const cookieStore = await cookies()
@@ -42,6 +47,11 @@ export async function createClient() {
 export function createAdminClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  
+  if (process.env.NODE_ENV !== 'development') {
+    console.log(`[SUPABASE_ADMIN] Initializing with URL: ${url?.split('.')[0]}...`)
+  }
+
   if (!url || !key) throw new Error('Missing Supabase env vars (NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY)')
 
   return createSupabaseClient(url, key, {
