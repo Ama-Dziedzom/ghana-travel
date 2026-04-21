@@ -37,6 +37,7 @@ const Nav = () => {
     { name: "Taste", href: "/taste" },
     { name: "Travel Tips", href: "/travel-tips" },
     { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (

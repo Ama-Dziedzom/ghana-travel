@@ -6,6 +6,11 @@ import { allArticles } from 'contentlayer/generated'
 function publicClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  
+  if (process.env.NODE_ENV !== 'development') {
+    console.log(`[ARTICLES_CMS] Public client URL: ${url?.split('.')[0]}...`)
+  }
+
   if (!url || !key) return null
   return createClient(url, key, {
     auth: { autoRefreshToken: false, persistSession: false },
