@@ -76,7 +76,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-body text-[10px] uppercase font-bold tracking-widest text-muted mb-1">Email Us</p>
                       <a href="mailto:hello@ghanatravelblog.com" className="font-body text-lg text-text hover:text-accent transition-colors">
-                        hello@ghanatravelblog.com
+                        amandaappau1@gmail.com
                       </a>
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                     <div>
                       <p className="font-body text-[10px] uppercase font-bold tracking-widest text-muted mb-1">Call Us</p>
                       <a href="tel:+233201484669" className="font-body text-lg text-text hover:text-accent transition-colors">
-                        +233 20 148 4669
+                        +233 59 202 4085
                       </a>
                     </div>
                   </div>
